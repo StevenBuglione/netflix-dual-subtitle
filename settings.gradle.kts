@@ -1,3 +1,3 @@
 
-rootProject.name = "netflix-dual-subtitle"
+rootProject.name = "popup"
 

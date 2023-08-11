@@ -10,7 +10,8 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+    // https://mvnrepository.com/artifact/org.jetbrains.kotlinx/kotlinx-coroutines-core-js
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core-js:1.7.3")
 }
 
 kotlin {

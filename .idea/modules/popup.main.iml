@@ -2,10 +2,10 @@
 <module version="4">
   <component name="FacetManager">
     <facet type="kotlin-language" name="Kotlin">
-      <configuration version="5" platform="JavaScript " allPlatforms="JS []" useProjectSettings="false" isTestModule="false" externalProjectId="netflix-dual-subtitle">
+      <configuration version="5" platform="JavaScript " allPlatforms="JS []" useProjectSettings="false" isTestModule="false" externalProjectId="popup">
         <newMppModelJpsModuleKind>COMPILATION_AND_SOURCE_SET_HOLDER</newMppModelJpsModuleKind>
         <compilerSettings>
-          <option name="additionalArguments" value="-Xir-only -Xir-per-module-output-name=netflix-dual-subtitle -Xir-produce-klib-dir -Xir-module-name=com.buglione.chrome.extensions:netflix-dual-subtitle" />
+          <option name="additionalArguments" value="-Xir-only -Xir-per-module-output-name=popup -Xir-produce-klib-dir -Xir-module-name=com.buglione.chrome.extensions:popup" />
         </compilerSettings>
         <compilerArguments>
           <flagArguments>
