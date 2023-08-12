@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="popup-0.1">
+    <output-path>$PROJECT_DIR$/popup/build/libs</output-path>
+    <root id="archive" name="popup-0.1.jar">
+      <element id="module-output" name="chrome-extension.popup.main" />
+    </root>
+  </artifact>
+</component>
