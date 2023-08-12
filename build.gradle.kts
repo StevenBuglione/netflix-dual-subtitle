@@ -21,6 +21,7 @@ configurations {
 dependencies {
     "content"(project(path = ":background", configuration = "content"))
     "content"(project(path = ":popup", configuration = "content"))
+    "content"(project(path = ":content", configuration = "content"))
 }
 
 distributions {

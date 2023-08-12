@@ -1,6 +1,7 @@
 include(
     ":popup",
     ":background",
+    ":content",
     "chrome-platform"
 )
 
@@ -11,3 +12,4 @@ for (project in rootProject.children) {
         buildFileName = "$name.gradle.kts"
     }
 }
+include("content")
