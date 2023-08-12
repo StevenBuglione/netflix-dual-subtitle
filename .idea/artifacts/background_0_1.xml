@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="background-0.1">
-    <output-path>$PROJECT_DIR$/background/build/libs</output-path>
-    <root id="archive" name="background-0.1.jar">
-      <element id="module-output" name="chrome-extension.background.main" />
-    </root>
-  </artifact>
-</component>
