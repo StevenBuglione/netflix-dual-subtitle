@@ -4,6 +4,7 @@
     <facet type="kotlin-language" name="Kotlin">
       <configuration version="5" platform="JavaScript " allPlatforms="JS []" useProjectSettings="false" isTestModule="false" externalProjectId="background">
         <newMppModelJpsModuleKind>COMPILATION_AND_SOURCE_SET_HOLDER</newMppModelJpsModuleKind>
+        <productionOutputPath>$MODULE_DIR$/../../build/classes/kotlin/main</productionOutputPath>
         <compilerSettings>
           <option name="additionalArguments" value="-Xir-only -Xir-per-module-output-name=background -Xir-produce-klib-dir -Xir-module-name=com.buglione.chrome.extensions:background" />
         </compilerSettings>

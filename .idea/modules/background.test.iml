@@ -7,6 +7,7 @@
         <externalSystemTestTasks>
           <externalSystemTestTask>browserTest|:|js</externalSystemTestTask>
         </externalSystemTestTasks>
+        <testOutputPath>$MODULE_DIR$/../../build/classes/kotlin/test</testOutputPath>
         <compilerSettings>
           <option name="additionalArguments" value="-Xir-only -Xir-per-module-output-name=background-test -Xir-produce-klib-dir -Xir-module-name=com.buglione.chrome.extensions:background_test" />
         </compilerSettings>
