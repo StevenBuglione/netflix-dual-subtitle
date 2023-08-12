@@ -4,6 +4,7 @@ build/
 gradlew
 gradlew.bat
 gradle-wrapper.jar
+gradle/
 
 ### Kotlin ###
 *.kotlin_metadata
