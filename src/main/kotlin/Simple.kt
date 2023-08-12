@@ -43,6 +43,7 @@ class BackgroundChanger {
         val items = js("{}")
         items[url] = color
         ChromeStorageSync.set(items)
+        chrome.runtime.
         console.log("hello 1")
     }
 

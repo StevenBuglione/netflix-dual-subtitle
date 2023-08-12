@@ -5,278 +5,362 @@ package chrome.tabs
 import kotlin.js.Promise
 
 external fun query(queryInfo: QueryInfo): Promise<Array<Tab>>
-external fun executeScript(
-        tabId: Int? = definedExternally,
-        details: ExecuteScriptDetails
-): Promise<Array<dynamic>>
 
-external val TAB_ID_NONE: Int = definedExternally
+external fun create(createProperties: CreateProperties): Promise<Tab>
+
+external fun <M, R> sendMessage(tabId: Number, message: M): Promise<R>
+
+external fun <M, R> sendMessage(tabId: Number, message: M, options: MessageSendOptions): Promise<R>
 
 external interface QueryInfo {
 
     /**
-     * Whether the tabs are active in their windows.
-     * */
+     * Optional. Whether the tabs have completed loading.
+     * One of: "loading", or "complete"
+     */
+    var status: String? /* "loading" | "complete" */
+        get() = definedExternally
+        set(value) = definedExternally
+
+    /**
+     * Optional. Whether the tabs are in the last focused window.
+     * @since Chrome 19.
+     */
+    var lastFocusedWindow: Boolean?
+        get() = definedExternally
+        set(value) = definedExternally
+
+    /** Optional. The ID of the parent window, or windows.WINDOW_ID_CURRENT for the current window. */
+    var windowId: Number?
+        get() = definedExternally
+        set(value) = definedExternally
+
+    /**
+     * Optional. The type of window the tabs are in.
+     * One of: "normal", "popup", "panel", "app", or "devtools"
+     */
+    var windowType: String? /* "normal" | "popup" | "panel" | "app" | "devtools" */
+        get() = definedExternally
+        set(value) = definedExternally
+
+    /** Optional. Whether the tabs are active in their windows. */
     var active: Boolean?
+        get() = definedExternally
+        set(value) = definedExternally
 
     /**
-     * Whether the tabs are pinned.
-     * */
-    var pinned: Boolean?
+     * Optional. The position of the tabs within their windows.
+     * @since Chrome 18.
+     */
+    var index: Number?
+        get() = definedExternally
+        set(value) = definedExternally
+
+    /** Optional. Match page titles against a pattern. */
+    var title: String?
+        get() = definedExternally
+        set(value) = definedExternally
+
+    /** Optional. Match tabs against one or more URL patterns. Note that fragment identifiers are not matched. */
+    var url: dynamic /* String? | Array<String>? */
+        get() = definedExternally
+        set(value) = definedExternally
 
     /**
-     * Whether the tabs are audible.
-     *
-     * Since Chrome 45.
-     * */
-    var audible: Boolean?
+     * Optional. Whether the tabs are in the current window.
+     * @since Chrome 19.
+     */
+    var currentWindow: Boolean?
+        get() = definedExternally
+        set(value) = definedExternally
 
-    /**
-     * Whether the tabs are muted.
-     *
-     * Since Chrome 45.
-     * */
-    var muted: Boolean?
-
-    /**
-     * Whether the tabs are highlighted.
-     * */
+    /** Optional. Whether the tabs are highlighted. */
     var highlighted: Boolean?
+        get() = definedExternally
+        set(value) = definedExternally
 
     /**
-     * Whether the tabs are discarded.
-     * A discarded tab is one whose content has been unloaded from memory,
-     * but is still visible in the tab strip.
-     * Its content gets reloaded the next time it's activated.
-     *
-     * Since Chrome 54.
+     * Optional.
+     * Whether the tabs are discarded. A discarded tab is one whose content has been unloaded from memory, but is still visible in the tab strip. Its content gets reloaded the next time it's activated.
+     * @since Chrome 54.
      */
     var discarded: Boolean?
+        get() = definedExternally
+        set(value) = definedExternally
 
     /**
+     * Optional.
      * Whether the tabs can be discarded automatically by the browser when resources are low.
-     *
-     * Since Chrome 54.
+     * @since Chrome 54.
      */
     var autoDiscardable: Boolean?
+        get() = definedExternally
+        set(value) = definedExternally
+
+    /** Optional. Whether the tabs are pinned. */
+    var pinned: Boolean?
+        get() = definedExternally
+        set(value) = definedExternally
 
     /**
-     * Whether the tabs are in the current window.
-     * */
-    var currentWindow: Boolean?
-
-    /**
-     * Whether the tabs are in the last focused window.
-     * */
-    var lastFocusedWindow: Boolean?
-
-    /**
-     * Whether the tabs have completed loading.
-     * */
-    var status: String?
-
-    /**
-     * Match page titles against a pattern.
-     * Note that this property is ignored if the extension doesn't have the "tabs" permission.
+     * Optional. Whether the tabs are audible.
+     * @since Chrome 45.
      */
-    var title: String?
+    var audible: Boolean?
+        get() = definedExternally
+        set(value) = definedExternally
 
     /**
-     * Match tabs against one or more URL patterns.
-     * Note that fragment identifiers are not matched.
-     * Note that this property is ignored if the extension doesn't have the "tabs" permission.
+     * Optional. Whether the tabs are muted.
+     * @since Chrome 45.
      */
-    var url: String? //TODO string or array of string (optional)
+    var muted: Boolean?
+        get() = definedExternally
+        set(value) = definedExternally
 
-    /** The ID of the parent window, or windows.WINDOW_ID_CURRENT for the current window. */
-    var windowId: Int?
-
-    /** The type of window the tabs are in. */
-    var windowType: String?
-
-    /** The position of the tabs within their windows. */
-    var index: Int?
-
+    /**
+     * Optional. The ID of the group that the tabs are in, or chrome.tabGroups.TAB_GROUP_ID_NONE for ungrouped tabs.
+     * @since Chrome 88
+     */
+    var groupId: Number?
+        get() = definedExternally
+        set(value) = definedExternally
 }
 
 external interface Tab {
+    /** Optional. Either loading or complete. */
+    var status: String?
+        get() = definedExternally
+        set(value) = definedExternally
+
+    /** The zero-based index of the tab within its window. */
+    var index: Number
 
     /**
-     * The ID of the tab. Tab IDs are unique within a browser session.
-     * Under some circumstances a Tab may not be assigned an ID, for example when querying foreign tabs using the sessions API, in which case a session ID may be present.
-     * Tab ID can also be set to chrome.tabs.TAB_ID_NONE for apps and devtools windows.
-     */
-    val id: Int?
-
-    /**
-     * The zero-based index of the tab within its window.
-     */
-    val index: Int
-
-    /**
-     * The ID of the window the tab is contained within.
-     */
-    val windowId: Int
-
-    /**
+     * Optional.
      * The ID of the tab that opened this tab, if any. This property is only present if the opener tab still exists.
+     * @since Chrome 18.
      */
-    val openerTabId: Int?
+    var openerTabId: Number?
+        get() = definedExternally
+        set(value) = definedExternally
 
     /**
-     * Whether the tab is highlighted.
+     * Optional.
+     * The title of the tab. This property is only present if the extension's manifest includes the "tabs" permission.
      */
-    val highlighted: Boolean
+    var title: String?
+        get() = definedExternally
+        set(value) = definedExternally
 
     /**
-     * Whether the tab is active in its window. (Does not necessarily mean the window is focused.)
+     * Optional.
+     * The URL the tab is displaying. This property is only present if the extension's manifest includes the "tabs" permission.
      */
-    val active: Boolean
+    var url: String?
+        get() = definedExternally
+        set(value) = definedExternally
 
     /**
-     * Whether the tab is pinned.
+     * The URL the tab is navigating to, before it has committed.
+     * This property is only present if the extension's manifest includes the "tabs" permission and there is a pending navigation.
+     * @since Chrome 79.
      */
-    val pinned: Boolean
+    var pendingUrl: String?
+        get() = definedExternally
+        set(value) = definedExternally
+
+    /** Whether the tab is pinned. @since Chrome 9. */
+    var pinned: Boolean
+
+    /** Whether the tab is highlighted. @since Chrome 16. */
+    var highlighted: Boolean
+
+    /** The ID of the window the tab is contained within. */
+    var windowId: Number
+
+    /** Whether the tab is active in its window. (Does not necessarily mean the window is focused.) @since Chrome 16. */
+    var active: Boolean
 
     /**
-     *Whether the tab has produced sound over the past couple of seconds (but it might not be heard if also muted).
-     * Equivalent to whether the speaker audio indicator is showing.
-     *
-     * Since Chrome 45.
-     */
-    val audible: Boolean?
-
-    /**
-     * Whether the tab is discarded.
-     * A discarded tab is one whose content has been unloaded from memory, but is still visible in the tab strip.
-     * Its content gets reloaded the next time it's activated.
-     *
-     * Since Chrome 54.
-     */
-    val discarded: Boolean
-
-    /**
-     * Whether the tab can be discarded automatically by the browser when resources are low.
-     *
-     * Since Chrome 54.
-     */
-    val autoDiscardable: Boolean
-
-    /**
-     * Current tab muted state and the reason for the last state change.
-     *
-     * Since Chrome 46.
-     */
-    val mutedInfo: MutedInfo?
-
-    /**
-     * The URL the tab is displaying.
-     * This property is only present if the extension's manifest includes the "tabs" permission.
-     */
-    val url: String?
-
-    /**
-     * The title of the tab.
-     * This property is only present if the extension's manifest includes the "tabs" permission.
-     */
-    val title: String?
-
-    /**
-     * The URL of the tab's favicon.
-     * This property is only present if the extension's manifest includes the "tabs" permission.
+     * Optional.
+     * The URL of the tab's favicon. This property is only present if the extension's manifest includes the "tabs" permission.
      * It may also be an empty string if the tab is loading.
      */
-    val favIconUrl: String?
+    var favIconUrl: String?
+        get() = definedExternally
+        set(value) = definedExternally
 
     /**
-     * Either loading or complete.
+     * Optional.
+     * The ID of the tab. Tab IDs are unique within a browser session. Under some circumstances a Tab may not be assigned an ID,
+     * for example when querying foreign tabs using the sessions API, in which case a session ID may be present.
+     * Tab ID can also be set to chrome.tabs.TAB_ID_NONE for apps and devtools windows.
      */
-    val status: String?
+    var id: Number?
+        get() = definedExternally
+        set(value) = definedExternally
+
+    /** Whether the tab is in an incognito window. */
+    var incognito: Boolean
+
+    /** Whether the tab is selected. @deprecated since Chrome 33. Please use tabs.Tab.highlighted. */
+    var selected: Boolean
 
     /**
-     * Whether the tab is in an incognito window.
+     * Optional.
+     * Whether the tab has produced sound over the past couple of seconds (but it might not be heard if also muted).
+     * Equivalent to whether the speaker audio indicator is showing.
+     * @since Chrome 45.
      */
-    val incognito: Boolean
+    var audible: Boolean?
+        get() = definedExternally
+        set(value) = definedExternally
 
     /**
-     * The width of the tab in pixels.
-     *
-     * Since Chrome 31.
+     * Whether the tab is discarded. A discarded tab is one whose content has been unloaded from memory,
+     * but is still visible in the tab strip. Its content gets reloaded the next time it's activated.
+     * @since Chrome 54.
      */
-    val width: Int?
+    var discarded: Boolean
+
+    /** Whether the tab can be discarded automatically by the browser when resources are low. @since Chrome 54. */
+    var autoDiscardable: Boolean
 
     /**
-     * The height of the tab in pixels.
-     *
-     * Since Chrome 31.
+     * Optional.
+     * Current tab muted state and the reason for the last state change.
+     * @since Chrome 46. Warning: this is the current Beta channel.
      */
-    val height: Int?
+    var mutedInfo: MutedInfo?
+        get() = definedExternally
+        set(value) = definedExternally
+
+    /** Optional. The width of the tab in pixels. @since Chrome 31. */
+    var width: Number?
+        get() = definedExternally
+        set(value) = definedExternally
+
+    /** Optional. The height of the tab in pixels. @since Chrome 31. */
+    var height: Number?
+        get() = definedExternally
+        set(value) = definedExternally
 
     /**
-     * The session ID used to uniquely identify a Tab obtained from the sessions API.
-     *
-     * Since Chrome 31.
+     * Optional. The session ID used to uniquely identify a Tab obtained from the sessions API.
+     * @since Chrome 31.
      */
-    val sessionId: String?
+    var sessionId: String?
+        get() = definedExternally
+        set(value) = definedExternally
+
+    /** The ID of the group that the tab belongs to. @since Chrome 88 */
+    var groupId: Number
 }
 
 external interface MutedInfo {
-
     /**
-     * Whether the tab is prevented from playing sound (but hasn't necessarily recently produced sound).
+     * Whether the tab is prevented from playing sound
+     * (but hasn't necessarily recently produced sound).
      * Equivalent to whether the muted audio indicator is showing.
      */
-    val muted: Boolean
+    var muted: Boolean
 
     /**
-     * The reason the tab was muted or unmuted.
+     * Optional. The reason the tab was muted or unmuted.
      * Not set if the tab's mute state has never been changed.
+     * “user”: A user input action has set/overridden the muted state.
+     * “capture”: Tab capture started, forcing a muted state change.
+     * “extension”: An extension, identified by the extensionId field,
+     * set the muted state.
      */
-    val reason: String?
+    var reason: String?
+        get() = definedExternally
+        set(value) = definedExternally
 
     /**
-     * The ID of the extension that changed the muted state.
+     * Optional. The ID of the extension that changed the muted state.
      * Not set if an extension was not the reason the muted state last changed.
      */
-    val extensionId: String?
+    var extensionId: String?
+        get() = definedExternally
+        set(value) = definedExternally
 }
 
-external interface ExecuteScriptDetails {
+external interface CreateProperties {
 
     /**
-     * JavaScript or CSS code to inject.
-     *
-     * Warning:
-     * Be careful using the code parameter.
-     * Incorrect use of it may open your extension to cross site scripting attacks.
+     * Optional. The position the tab should take in the window. The provided value will be clamped to between zero and the number of tabs in the window.
      */
-    var code: String?
-
-    /** JavaScript or CSS file to inject. */
-    var file: String?
+    var index: Number?
+        get() = definedExternally
+        set(value) = definedExternally
 
     /**
-     * If allFrames is true, implies that the JavaScript or CSS should be injected into all frames of current page.
-     * By default, it's false and is only injected into the top frame.
-     * If true and frameId is set, then the code is inserted in the selected frame and all of its child frames.
+     * Optional.
+     * The ID of the tab that opened this tab. If specified, the opener tab must be in the same window as the newly created tab.
+     * @since Chrome 18.
      */
-    var allFrames: Boolean?
+    var openerTabId: Number?
+        get() = definedExternally
+        set(value) = definedExternally
 
     /**
-     * The frame where the script or CSS should be injected. Defaults to 0 (the top-level frame).
-     * Since Chrome 39.
+     * Optional.
+     * The URL to navigate the tab to initially. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com'). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
      */
-    var frameId: Int?
+    var url: String?
+        get() = definedExternally
+        set(value) = definedExternally
 
     /**
-     * If matchAboutBlank is true, then the code is also injected in about:blank and about:srcdoc frames if your extension has access to its parent document.
-     * Code cannot be inserted in top-level about:-frames. By default it is false.
-     * Since Chrome 39.
+     * Optional. Whether the tab should be pinned. Defaults to false
+     * @since Chrome 9.
      */
-    var matchAboutBlank: Boolean?
+    var pinned: Boolean?
+        get() = definedExternally
+        set(value) = definedExternally
+
+    /** Optional. The window to create the new tab in. Defaults to the current window. */
+    var windowId: Number?
+        get() = definedExternally
+        set(value) = definedExternally
 
     /**
-     * The soonest that the JavaScript or CSS will be injected into the tab. Defaults to "document_idle".
+     * Optional.
+     * Whether the tab should become the active tab in the window. Does not affect whether the window is focused (see windows.update). Defaults to true.
+     * @since Chrome 16.
      */
-    var runAt: String?
+    var active: Boolean?
+        get() = definedExternally
+        set(value) = definedExternally
+
+    /**
+     * Optional. Whether the tab should become the selected tab in the window. Defaults to true
+     * @deprecated since Chrome 33. Please use active.
+     */
+    var selected: Boolean?
+        get() = definedExternally
+        set(value) = definedExternally
 }
+
+external interface MessageSendOptions {
+    /**
+     * Optional. Send a message to a specific frame identified
+     * by frameId instead of all frames in the tab.
+     */
+    var frameId: Number?
+        get() = definedExternally
+        set(value) = definedExternally
+
+    /**
+     * Optional. Send a message to a specific document identified by documentId instead of all frames in the tab.
+     * Since:
+     * Chrome 106.
+     */
+    var documentId: String?
+        get() = definedExternally
+        set(value) = definedExternally
+}
+
+
