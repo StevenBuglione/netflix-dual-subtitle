@@ -8,9 +8,12 @@ external var onMessage: ExtensionMessageEvent
 
 external var onInstalled: RuntimeInstalledEvent
 
+external fun getURL(path: String): String
+
 external interface RuntimeInstalledEvent : Event<(details: InstalledDetails) -> Unit>
 
-external interface ExtensionMessageEvent : Event<(message: Any, sender: MessageSender, sendResponse: (response: Any) -> Unit) -> Unit>
+external interface ExtensionMessageEvent : Event<(message: dynamic, sender: MessageSender, sendResponse: (response: Any) -> Unit) -> Unit>
+
 
 external interface MessageSender {
     var id: String?

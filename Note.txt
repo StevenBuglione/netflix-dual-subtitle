@@ -1,19 +1,392 @@
-Given this java script function please use these typescript definitions use modify the fuction to use promises:
+Please Complete this Kotline Class there is a comment in the init function explaining what to do the original javascript
+code is after the kotlin code
 
-chrome.tabs.query({active: true, currentWindow: true}, function(tabs){ //Pass message onto Content.js
+
+import chrome.runtime.OnInstalledReason
+import chrome.runtime.getURL
+import chrome.runtime.onInstalled
+import chrome.storage.ChromeStorageSync
+import chrome.tabs.CreateProperties
+import chrome.tabs.create
+
+class Background {
+
+    private fun checkInstalled(){
+       onInstalled.addListener { details ->
+           if (details.reason == OnInstalledReason.INSTALL){
+               val createProperties = CreateProperties {
+                    url = "tutorial.html"
+               }
+               create(createProperties)
+           }
+       }
+    }
+
+    private suspend fun checkFontMultiplier(){
+        val fontMultiplier = ChromeStorageSync.get("font_multiplier")
+        if(fontMultiplier != null){
+            console.log("Preferences: Font_multiplier found: ");
+            console.log(fontMultiplier);
+        }else{
+            console.log("No Font Multiplier stored");
+            ChromeStorageSync.set(mapOf("font_multiplier" to 1))
+        }
+    }
+
+    private suspend fun checkTextColor(){
+        val textColor = ChromeStorageSync.get("text_color")
+        if(textColor != null){
+            console.log("Preferences: Text Color : $textColor");
+        }else{
+            console.log("No Color Preference Found - Setting YELLOW");
+            ChromeStorageSync.set(mapOf("text_color" to "#FFFFFF"))
+        }
+    }
+
+    private suspend fun checkOpacity(){
+        val opacity = ChromeStorageSync.get("opacity")
+        if(opacity != null){
+            console.log("Preferences: Opacity : $opacity");
+        }else{
+            console.log("No Opacity Preference Found - Setting to .8");
+            ChromeStorageSync.set(mapOf("opacity" to .8))
+        }
+    }
+
+    private suspend fun enableDisable(){
+        val onOff = ChromeStorageSync.get("on_off")
+        if(onOff != null){
+            console.log("Preferences: on_off : $onOff");
+        }else{
+            console.log("No Opacity Preference Found - Setting to ON");
+            ChromeStorageSync.set(mapOf("on_off" to 1))
+        }
+    }
+
+    private suspend fun onOffButton(){
+        val onOffButton = ChromeStorageSync.get("button_on_off")
+        if(onOffButton != null){
+            console.log("Preferences: button_on_off : $onOffButton");
+        }else{
+            console.log("No Opacity Preference Found - Setting to ON");
+            ChromeStorageSync.set(mapOf("button_on_off" to 1))
+        }
+    }
+
+    private suspend fun checkOriginalTextOpacity(){
+        val originalTextOpacity = ChromeStorageSync.get("originaltext_opacity")
+        if(originalTextOpacity != null){
+            console.log("Preferences: Original Text Opacity : $originalTextOpacity");
+        }else{
+            console.log("No Original Text Opacity Preference Found - Setting to 1");
+            ChromeStorageSync.set(mapOf("originaltext_opacity" to 1))
+        }
+    }
+
+    private suspend fun checkOriginalTextColor(){
+        val originalTextColor = ChromeStorageSync.get("originaltext_color")
+        if(originalTextColor != null){
+            console.log("Preferences: OriginalText Color : $originalTextColor");
+        }else{
+            console.log("No OriginalText Color Preference Found - Setting YELLOW");
+            ChromeStorageSync.set(mapOf("originaltext_color" to "#fff000"))
+        }
+    }
+
+    private suspend fun checkUpDownMode(){
+        val upDownMode = ChromeStorageSync.get("button_up_down_mode")
+        if(upDownMode != null){
+            console.log("Preferences: up_down_mode: $upDownMode")
+        }else{
+            console.log("No up_down_mode Preference Found - Setting 1");
+            ChromeStorageSync.set(mapOf("button_up_down_mode" to 1))
+        }
+    }
+
+    suspend fun init(){
+        //Please take all the exisiting methods and place them in here please initilize them and please add the
+        //chrome.runtime.onMessage.addListner js logic in here
+    }
+
+
+
+}
+
+fun main() = run {
+    val changer = Background()
+}
+
+
+Here is the javascript code:
+/ background.js
+
+
+//STORAGE VALUES
+
+//First Run, store default settings
+chrome.runtime.onInstalled.addListener(function(details){
+  if(details.reason == "install"){
+    chrome.tabs.create({ url: chrome.runtime.getURL("tutorial.html") });
+  }
+  // if(details.reason == "update"){
+  //   return;
+  // }
+});
+/*chrome.runtime.onInstalled.addListener(function(details){
+  if(details.reason == "update"){
+      chrome.storage.sync.get('text_color',function(data){ //On update save switch right side color to left
+        if((data.text_color) && (details.previousVersion == '1.2.8') && (data.text_color!=='#FFFFFF') ){
+          chrome.tabs.create({ url: chrome.runtime.getURL("update.html") }); //Update notification page to let people know edge is supported now
+          chrome.storage.sync.set({'originaltext_color':data.text_color});
+          chrome.storage.sync.set({'text_color':'#FFFFFF'});
+        }
+      });
+
+  }
+});
+*/
+//Font Multiplier
+
+chrome.storage.sync.get('font_multiplier',function(data){
+  if(data.font_multiplier!=null){
+    console.log("Preferences: Font_multiplier found: ");
+    console.log(data.font_multiplier);
+  }
+  else{
+    console.log("No Font Multiplier stored");
+    chrome.storage.sync.set({'font_multiplier':1});
+  }
+});
+
+// Text Color
+
+chrome.storage.sync.get('text_color', function(data){
+  if(data.text_color){
+    console.log("Preferences: Text Color : " + data.text_color);
+  }
+  else{
+    console.log("No Color Preference Found - Setting YELLOW");
+    chrome.storage.sync.set({'text_color': '#FFFFFF'});
+  }
+});
+
+// Opacity
+
+chrome.storage.sync.get('opacity', function(data){
+  if(data.opacity){
+    console.log("Preferences: Opacity : " + data.opacity);
+  }
+  else{
+    console.log("No Opacity Preference Found - Setting to .8");
+    chrome.storage.sync.set({'opacity': .8});
+  }
+});
+
+//enabled disabled
+chrome.storage.sync.get('on_off', function(data){
+  if(data.on_off!=null){
+    console.log("Preferences: on_off : " + data.on_off);
+  }
+  else{
+    console.log("No Opacity Preference Found - Setting to ON");
+    chrome.storage.sync.set({'on_off': 1});
+  }
+});
+
+chrome.storage.sync.get('button_on_off', function(data){
+  if(data.button_on_off!=null){
+    console.log("Preferences: button_on_off : " + data.button_on_off);
+  }
+  else{
+    console.log("No Opacity Preference Found - Setting to ON");
+    chrome.storage.sync.set({'button_on_off': 1});
+  }
+});
+//
+
+chrome.storage.sync.get('originaltext_opacity', function(data){
+  if(data.originaltext_opacity){
+    console.log("Preferences: Original Text Opacity : " + data.originaltext_color);
+  }
+  else{
+    console.log("No Original Text Opacity Preference Found - Setting to 1");
+    chrome.storage.sync.set({'originaltext_opacity': 1});
+  }
+});
+
+chrome.storage.sync.get('originaltext_color', function(data){
+  if(data.originaltext_color){
+    console.log("Preferences: OriginalText Color : " + data.originaltext_color);
+  }
+  else{
+    console.log("No OriginalText Color Preference Found - Setting YELLOW");
+    chrome.storage.sync.set({'originaltext_color': '#fff000'});
+  }
+});
+
+chrome.storage.sync.get('button_up_down_mode', function(data){
+  if(data.button_up_down_mode){
+    console.log("Preferences: up_down_mode: " + data.button_up_down_mode);
+  }
+  else{
+    console.log("No up_down_mode Preference Found - Setting 1");
+    chrome.storage.sync.set({'button_up_down_mode': 1});
+  }
+});
+
+//Sub Distance
+
+/*chrome.storage.sync.get('sub_distance', function(data){ //inconsistent functionality for some reason.. but I don't think people would need this option anyways so I'll disable for now
+  if(data.sub_distance!=null){
+    console.log("Preferences: Sub Distance Found - : " + data.sub_distance);
+  }
+  else{
+    console.log("No Side Preference Found - Setting RIGHT");
+    chrome.storage.sync.set({'sub_distance':10}); //1 = Right Side (Prepend New Span) 0= Left Side (Append New Span)
+  }
+
+});
+*/
+
+
+//Handles message sent to background script, typically for changing User Preference variables
+chrome.runtime.onMessage.addListener(
+    function(request, sender, sendResponse) {
+
+      if (request.message === "open_popup"){ // - 8/29/22 - decide between a settings window or a page with tutorial gifs
+        chrome.tabs.create({ url: chrome.runtime.getURL("tutorial.html") });
+        //chrome.windows.create({'url': 'popup.html', 'type': 'popup', 'focused':true, 'height':100,'width':100  }, function(window) {
+        //});
+      }
+
+      if( request.message === "update_on_off" )
+      {
+
+        console.log("Background.js recieved message from SLIDER to update on_off to " + request.value);
+        chrome.storage.sync.set({'on_off':request.value});           //Store into local variables
+
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs){ //Pass message onto Content.js
           chrome.tabs.sendMessage(tabs[0].id, {
             "message":"update_on_off",
             "value":request.value});
         });
 
-export function query(options: QueryInfo, callback: () => void): void;
+      }
 
-export function query(options: QueryInfo): Promise<void>;
+      if( request.message === "update_button_on_off" )
+      {
 
-export function query(queryInfo: QueryInfo, callback: (result: Tab[]) => void): void;
+        console.log("Background.js recieved message from SLIDER to update button_on_off to " + request.value);
+        chrome.storage.sync.set({'button_on_off':request.value});           //Store into local variables
 
-export function query(queryInfo: QueryInfo): Promise<Tab[]>;
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs){ //Pass message onto Content.js
+          chrome.tabs.sendMessage(tabs[0].id, {
+            "message":"update_button_on_off",
+            "value":request.value});
+        });
 
-export function query(options: QueryInfo, callback: () => void): void;
+      }
 
-export function query(options: QueryInfo): Promise<void>;
+      if(request.message === "update_button_up_down_mode")
+      {
+
+        console.log("Background.js recieved  a message from SLIDER to update up_down_mode to " + request.value);
+        chrome.storage.sync.set({'button_up_down_mode':request.value});
+
+        chrome.tabs.query({active:true, currentWindow:true}, function(tabs){ //Pass message onto Content.js
+          chrome.tabs.sendMessage(tabs[0].id, {
+            "message":"update_button_up_down_mode",
+            "value":request.value});
+        });
+
+      }
+
+
+      if( request.message === "update_font_multiplier" )
+      {
+
+        console.log("Background.js recieved message from SLIDER to update font multiplier to " + request.value);
+        chrome.storage.sync.set({'font_multiplier':parseFloat(request.value)});           //Store into local variables
+
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs){ //Pass message onto Content.js
+          chrome.tabs.sendMessage(tabs[0].id, {
+            "message":"update_font_multiplier",
+            "value":request.value});
+        });
+
+      }
+
+      if(request.message === "update_text_color")
+      {
+
+        console.log("Background.js recieved  a message from COLORSELECTOR to update TEXT_COLOR to " + request.value);
+        chrome.storage.sync.set({'text_color':request.value});
+
+        chrome.tabs.query({active:true, currentWindow:true}, function(tabs){ //Pass message onto Content.js
+          chrome.tabs.sendMessage(tabs[0].id, {
+            "message":"update_text_color",
+            "value":request.value});
+        });
+
+      }
+
+      if(request.message === "update_opacity")
+      {
+
+        console.log("BACKGROUND.JS recieved a message from SIDESELECTOR to update TEXT_SIDE to " + request.value);
+        chrome.storage.sync.set({'opacity': request.value});
+
+        chrome.tabs.query({active:true, currentWindow:true}, function(tabs){
+          chrome.tabs.sendMessage(tabs[0].id, {
+            "message": "update_opacity",
+            "value": request.value});
+          });
+
+      }
+
+      if(request.message === "update_originaltext_opacity")
+      {
+
+        console.log("BACKGROUND.JS recieved a message from SIDESELECTOR to update ORIGINALTEXT_OPACITY to " + request.value);
+        chrome.storage.sync.set({'originaltext_opacity': request.value});
+
+        chrome.tabs.query({active:true, currentWindow:true}, function(tabs){
+          chrome.tabs.sendMessage(tabs[0].id, {
+            "message": "update_originaltext_opacity",
+            "value": request.value});
+          });
+
+      }
+
+      if(request.message === "update_originaltext_color")
+      {
+
+        console.log("Background.js recieved  a message from COLORSELECTOR to update ORIGINALTEXT_COLOR to " + request.value);
+        chrome.storage.sync.set({'originaltext_color':request.value});
+
+        chrome.tabs.query({active:true, currentWindow:true}, function(tabs){ //Pass message onto Content.js
+          chrome.tabs.sendMessage(tabs[0].id, {
+            "message":"update_originaltext_color",
+            "value":request.value});
+        });
+
+      }
+
+      /*if(request.message === "update_sub_distance")
+      {
+
+        console.log("BACKGROUND.JS recieved a message from SIDESLIDER to update SUB_DISTANCE to " + request.value);
+        chrome.storage.sync.set({'sub_distance':request.value});
+
+        chrome.tabs.query({active:true, currentWindow:true}, function(tabs){
+          chrome.tabs.sendMessage(tabs[0].id, {
+            "message": "update_sub_distance",
+            "value": request.value});
+        });
+
+      }*/
+
+
+});
+
+

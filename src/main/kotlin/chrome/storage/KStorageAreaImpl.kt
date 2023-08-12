@@ -12,4 +12,12 @@ class KStorageAreaImpl(private val storageArea: StorageArea) : KStorageArea {
     override fun set(keys: dynamic): Promise<Unit> {
         return storageArea.set(keys)
     }
+
+    override fun set(key: String, value: Any): Promise<Unit> {
+        val item = js("{}")
+        item[key] = value
+        return storageArea.set(item)
+    }
+
+
 }

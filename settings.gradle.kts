@@ -1,3 +1,3 @@
 
-rootProject.name = "popup"
+rootProject.name = "background"
 
