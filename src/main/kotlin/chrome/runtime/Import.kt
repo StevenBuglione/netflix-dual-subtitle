@@ -1,8 +1,8 @@
 @file:JsQualifier("chrome.runtime")
 package chrome.runtime
 
-import chrome.tabs.Tab
 import chrome.events.Event
+import chrome.tabs.Tab
 
 external var onMessage: ExtensionMessageEvent
 
