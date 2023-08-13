@@ -3,6 +3,7 @@ package chrome.runtime
 
 import chrome.events.Event
 import chrome.tabs.Tab
+import kotlin.js.Promise
 
 external var onMessage: ExtensionMessageEvent
 
@@ -11,6 +12,8 @@ external var onInstalled: RuntimeInstalledEvent
 external fun getURL(path: String): String
 
 external interface RuntimeInstalledEvent : Event<(details: InstalledDetails) -> Unit>
+
+external fun <M, R> sendMessage(message: M): Promise<R>
 
 external interface ExtensionMessageEvent : Event<(message: dynamic, sender: MessageSender, sendResponse: (response: Any) -> Unit) -> Unit>
 

@@ -1,4 +1,3 @@
 package chrome.runtime
 
-class Runtime {
-}
+object ChromeRuntime : KChromeRuntime by KChromeRuntimeImpl()

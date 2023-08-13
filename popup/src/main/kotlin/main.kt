@@ -1,14 +1,37 @@
-import chrome.storage.ChromeStorageSync
+import chrome.tabs.CreateProperties
 import kotlinx.browser.document
+import kotlinx.browser.window
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import org.w3c.dom.HTMLButtonElement
-import org.w3c.dom.HTMLElement
+import kotlinx.coroutines.promise
+import org.w3c.dom.HTMLAnchorElement
+import preferences.Preferences
+import kotlin.js.Promise
 
-fun main() {
-    GlobalScope.launch {
-        val changeColor: HTMLElement = requireNotNull(document.getElementById("changeColor")) as HTMLButtonElement
-        val color = ChromeStorageSync.get("color")
-        changeColor.style.background = color as String
+suspend fun main() {
+
+  waitForDOMContentLoaded()
+  window.addEventListener("click", { event ->
+    val target = event.target
+    if (target is HTMLAnchorElement && target.href.isNotEmpty()) {
+      val createProperties = CreateProperties {
+        url = target.href
+      }
+      chrome.tabs.create(createProperties)
     }
+  })
+
+  val preferences = Preferences()
+  preferences.init()
 }
+
+fun waitForDOMContentLoaded(): Promise<Unit> = GlobalScope.promise {
+  document.addEventListener("DOMContentLoaded", {
+    if (window.location.pathname == "/update.html") {
+      // to stop popup js from running when update.html is opened and causing errors
+      throw CancellationException("Pathname is /update.html")
+    }
+  })
+}
+
+
