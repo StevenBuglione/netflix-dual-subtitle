@@ -5,6 +5,7 @@ import chrome.tabs.CreateProperties
 import kotlinx.browser.window
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.promise
 import org.w3c.dom.HTMLAnchorElement
 import org.w3c.dom.HTMLDivElement
@@ -29,20 +30,23 @@ class EventListenerManager(private val elements: ElementWrapper) {
     setupResetButtonListener()
   }
 
-  private fun setupChangeListenerSlider(slider: HTMLInputElement, sliderValue: HTMLDivElement, action: (String) -> Unit) {
-    slider.addEventListener("change",{
+  private fun setupChangeListenerSlider(slider: HTMLInputElement, sliderValue: HTMLDivElement, action: suspend (String) -> Unit) {
+    slider.addEventListener("change", {
       sliderValue.innerHTML = slider.value
-      action(slider.value)
+      GlobalScope.launch { action(slider.value) }
     })
   }
 
-  private fun setupCheckboxChangeListener(element: HTMLInputElement, action: (Boolean) -> Unit) {
+  private fun setupCheckboxChangeListener(element: HTMLInputElement, action: suspend (Boolean) -> Unit) {
     element.addEventListener("change", {
-      action(element.checked)
+      GlobalScope.launch { action(element.checked) }
     })
   }
-  private fun setupInputListener(element: HTMLInputElement, action: (String) -> Unit) {
-    element.addEventListener("input", { action(element.value) })
+
+  private fun setupInputListener(element: HTMLInputElement, action: suspend (String) -> Unit) {
+    element.addEventListener("input", {
+      GlobalScope.launch { action(element.value) }
+    })
   }
 
   private fun waitForDOMContentLoaded(): Promise<Unit> = GlobalScope.promise {

@@ -1,20 +1,22 @@
 package chrome.runtime
 
+import kotlin.js.Promise
+
 class KChromeRuntimeImpl : KChromeRuntime {
 
 
-  override fun sendMessage(message: String, value: Boolean) {
+  override suspend fun sendMessage(message: String, value: Boolean): Promise<Boolean> {
     val messageObject = js("{}")
     messageObject.message = message
     messageObject.value = value
-    sendMessage<String,Boolean>(messageObject)
+    return sendMessage<String,Boolean>(messageObject)
   }
 
-  override fun sendMessage(message: String, value: String) {
+  override suspend fun sendMessage(message: String, value: String): Promise<String> {
     val messageObject = js("{}")
     messageObject.message = message
     messageObject.value = value
-    sendMessage<String,String>(messageObject)
+    return sendMessage<String,String>(messageObject)
   }
 
 }

@@ -3,6 +3,6 @@ package chrome.runtime
 import kotlin.js.Promise
 
 interface KChromeRuntime {
-  fun sendMessage(message : String, value :Boolean)
-  fun sendMessage(message : String, value :String)
+  suspend fun sendMessage(message : String, value :Boolean):Promise<Boolean>
+  suspend fun sendMessage(message : String, value :String):Promise<String>
 }
