@@ -1,37 +1,38 @@
 import chrome.tabs.CreateProperties
-import kotlinx.browser.document
 import kotlinx.browser.window
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.promise
 import org.w3c.dom.HTMLAnchorElement
+import org.w3c.dom.events.EventListener
 import preferences.Preferences
+import preferences.PreferencesManger
 import kotlin.js.Promise
 
 suspend fun main() {
-
   waitForDOMContentLoaded()
-  window.addEventListener("click", { event ->
-    val target = event.target
-    if (target is HTMLAnchorElement && target.href.isNotEmpty()) {
-      val createProperties = CreateProperties {
-        url = target.href
-      }
-      chrome.tabs.create(createProperties)
-    }
-  })
-
-  val preferences = Preferences()
-  preferences.init()
+  setupGlobalClickHandler()
+  PreferencesManger().init()
 }
 
-fun waitForDOMContentLoaded(): Promise<Unit> = GlobalScope.promise {
-  document.addEventListener("DOMContentLoaded", {
+private fun waitForDOMContentLoaded(): Promise<Unit> = GlobalScope.promise {
+  window.document.addEventListener("DOMContentLoaded", EventListener {
     if (window.location.pathname == "/update.html") {
-      // to stop popup js from running when update.html is opened and causing errors
       throw CancellationException("Pathname is /update.html")
     }
   })
 }
+
+
+private fun setupGlobalClickHandler() {
+  window.addEventListener("click", EventListener { event ->
+    val target = event.target
+    if (target is HTMLAnchorElement && target.href.isNotEmpty()) {
+      chrome.tabs.create(CreateProperties { url = target.href })
+    }
+  })
+}
+
+
 
 

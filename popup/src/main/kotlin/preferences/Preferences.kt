@@ -46,9 +46,8 @@ class Preferences {
     val storedVal = ChromeStorageSync.get(key)
     @Suppress("UnsafeCastFromDynamic")
     console.log(storedVal[key])
-    slideValue.innerHTML = storedVal[key]
-    @Suppress("UnsafeCastFromDynamic")
     slider.value = storedVal[key]
+    slideValue.innerHTML = storedVal[key]
 
   }
 
@@ -108,6 +107,11 @@ class Preferences {
   }
 
   private fun setupEventListeners() {
+    slider.addEventListener("change", {
+      slideValue.innerHTML = slider.value
+      ChromeRuntime.sendMessage("update_opacity", slider.value)
+    })
+
     opacitySlider.addEventListener("change", {
       opacitySliderValue.innerHTML = opacitySlider.value
       ChromeRuntime.sendMessage("update_opacity", opacitySlider.value)
