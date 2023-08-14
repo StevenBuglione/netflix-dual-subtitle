@@ -31,19 +31,17 @@ class EventListenerManager(private val elements: ElementWrapper) {
 
   private fun setupChangeListenerSlider(slider: HTMLInputElement, sliderValue: HTMLDivElement, action: (String) -> Unit) {
     slider.addEventListener("change",{
-      console.log("Updating Slider" + slider.value)
       sliderValue.innerHTML = slider.value
+      action(slider.value)
     })
   }
 
   private fun setupCheckboxChangeListener(element: HTMLInputElement, action: (Boolean) -> Unit) {
     element.addEventListener("change", {
-      console.log("Updating CheckBox")
       action(element.checked)
     })
   }
   private fun setupInputListener(element: HTMLInputElement, action: (String) -> Unit) {
-    console.log("Updating imput")
     element.addEventListener("input", { action(element.value) })
   }
 
