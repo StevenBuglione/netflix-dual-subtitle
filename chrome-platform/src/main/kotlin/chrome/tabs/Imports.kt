@@ -2,15 +2,54 @@
 
 package chrome.tabs
 
+import chrome.events.Event
 import kotlin.js.Promise
 
 external fun query(queryInfo: QueryInfo): Promise<Array<Tab>>
 
 external fun create(createProperties: CreateProperties): Promise<Tab>
 
+external var onUpdated: TabUpdatedEvent
+
+external interface TabUpdatedEvent : Event<(tabId: Number, changeInfo: TabChangeInfo, tab: Tab) -> Unit>
+
 external fun <M, R> sendMessage(tabId: Number, message: M): Promise<R>
 
 external fun <M, R> sendMessage(tabId: Number, message: M, options: MessageSendOptions): Promise<R>
+
+external interface TabChangeInfo {
+  var status: String?
+    get() = definedExternally
+    set(value) = definedExternally
+  var pinned: Boolean?
+    get() = definedExternally
+    set(value) = definedExternally
+  var url: String?
+    get() = definedExternally
+    set(value) = definedExternally
+  var audible: Boolean?
+    get() = definedExternally
+    set(value) = definedExternally
+  var discarded: Boolean?
+    get() = definedExternally
+    set(value) = definedExternally
+  var autoDiscardable: Boolean?
+    get() = definedExternally
+    set(value) = definedExternally
+  var groupId: Number?
+    get() = definedExternally
+    set(value) = definedExternally
+  var mutedInfo: MutedInfo?
+    get() = definedExternally
+    set(value) = definedExternally
+  var favIconUrl: String?
+    get() = definedExternally
+    set(value) = definedExternally
+  var title: String?
+    get() = definedExternally
+    set(value) = definedExternally
+}
+
 
 external interface QueryInfo {
 

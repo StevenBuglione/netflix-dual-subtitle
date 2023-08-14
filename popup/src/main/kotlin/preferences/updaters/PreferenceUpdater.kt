@@ -6,6 +6,7 @@ import preferences.wrappers.ElementWrapper
 class PreferenceUpdater(private val elements: ElementWrapper) {
 
   suspend fun init() {
+    console.log("Initializing PreferenceUpdater...")
     listOf(
       ::updateFontMultiplier,
       ::updateOpacity,
@@ -15,48 +16,88 @@ class PreferenceUpdater(private val elements: ElementWrapper) {
       ::updateOnOff,
       ::updateOnOffButton,
       ::updateButtonUpDownMode
-    ).forEach { it.invoke() }
+    ).forEach {
+      console.log("Invoking function: ${it.name}")
+      it.invoke()
+    }
+    console.log("PreferenceUpdater initialization complete.")
   }
 
   private suspend fun <T> updatePreference(key: String, updateAction: (T) -> Unit) {
+    console.log("Updating preference for key: $key")
     val storedValue = ChromeStorageSync.get(key)
     @Suppress("UNCHECKED_CAST")
-    console.log("Updating Value to : " + storedValue[key])
-    updateAction(storedValue[key] as T)
+    val value = storedValue[key] as T
+    console.log("Retrieved value for key $key: $value")
+    updateAction(value)
+    console.log("Updated preference for key $key successfully.")
   }
 
-  suspend fun updateFontMultiplier() = updatePreference<String>("font_multiplier") {
-    elements.slideValue.innerHTML = it
-    elements.slider.value = it
+  suspend fun updateFontMultiplier() {
+    console.log("Updating font multiplier...")
+    updatePreference<String>("font_multiplier") {
+      elements.slideValue.innerHTML = it
+      elements.slider.value = it
+    }
+    console.log("Font multiplier updated.")
   }
 
-  suspend fun updateOpacity() = updatePreference<String>("opacity") {
-    elements.opacitySliderValue.innerHTML = it
-    elements.opacitySlider.value = it
+  suspend fun updateOpacity() {
+    console.log("Updating opacity...")
+    updatePreference<String>("opacity") {
+      elements.opacitySliderValue.innerHTML = it
+      elements.opacitySlider.value = it
+    }
+    console.log("Opacity updated.")
   }
 
-  suspend fun updateOriginalTextOpacity() = updatePreference<String>("originaltext_opacity") {
-    elements.originalOpacitySliderValue.innerHTML = it
-    elements.originalOpacitySlider.value = it
+  suspend fun updateOriginalTextOpacity() {
+    console.log("Updating original text opacity...")
+    updatePreference<String>("originaltext_opacity") {
+      elements.originalOpacitySliderValue.innerHTML = it
+      elements.originalOpacitySlider.value = it
+    }
+    console.log("Original text opacity updated.")
   }
 
-  suspend fun updateTextColor() = updatePreference<String>("text_color") {
-    elements.colorPicker.value = it
+  suspend fun updateTextColor() {
+    console.log("Updating text color...")
+    updatePreference<String>("text_color") {
+      elements.colorPicker.value = it
+    }
+    console.log("Text color updated.")
   }
 
-  suspend fun updateOriginalTextColor() = updatePreference<String>("originaltext_color") {
-    elements.originalColorPicker.value = it
+  suspend fun updateOriginalTextColor() {
+    console.log("Updating original text color...")
+    updatePreference<String>("originaltext_color") {
+      elements.originalColorPicker.value = it
+    }
+    console.log("Original text color updated.")
   }
 
-  suspend fun updateOnOff() = updatePreference<Boolean>("on_off") {
-    elements.onSwitch.checked = it
+  suspend fun updateOnOff() {
+    console.log("Updating on/off switch...")
+    updatePreference<Boolean>("on_off") {
+      elements.onSwitch.checked = it
+    }
+    console.log("On/off switch updated.")
   }
 
-  suspend fun updateOnOffButton() = updatePreference<Boolean>("button_on_off") {
-    elements.buttonOnSwitch.checked = it
+  suspend fun updateOnOffButton() {
+    console.log("Updating on/off button...")
+    updatePreference<Boolean>("button_on_off") {
+      elements.buttonOnSwitch.checked = it
+    }
+    console.log("On/off button updated.")
   }
 
-  suspend fun updateButtonUpDownMode() = updatePreference<Boolean>("button_up_down_mode") {
-    elements.buttonUpDownMode.checked = it
+  suspend fun updateButtonUpDownMode() {
+    console.log("Updating button up-down mode...")
+    updatePreference<Boolean>("button_up_down_mode") {
+      elements.buttonUpDownMode.checked = it
+    }
+    console.log("Button up-down mode updated.")
   }
 }
+

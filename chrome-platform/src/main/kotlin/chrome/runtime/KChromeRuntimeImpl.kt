@@ -1,22 +1,36 @@
 package chrome.runtime
 
+
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlin.js.Promise
 
 class KChromeRuntimeImpl : KChromeRuntime {
 
 
-  override suspend fun sendMessage(message: String, value: Boolean): Promise<Boolean> {
+  override suspend fun sendMessage(message: String, value: Boolean){
     val messageObject = js("{}")
     messageObject.message = message
     messageObject.value = value
-    return sendMessage<String,Boolean>(messageObject)
+
+    sendMessage<String,Boolean>(messageObject).catch {
+      GlobalScope.launch {
+        delay(1000)
+        sendMessage<String,Boolean>(messageObject)
+      }
+    }
   }
 
-  override suspend fun sendMessage(message: String, value: String): Promise<String> {
+  override suspend fun sendMessage(message: String, value: String){
     val messageObject = js("{}")
     messageObject.message = message
     messageObject.value = value
-    return sendMessage<String,String>(messageObject)
+    sendMessage<String,String>(messageObject).catch {
+      GlobalScope.launch {
+        delay(1000)
+        sendMessage<String,String>(messageObject)
+      }
+    }
   }
-
 }
