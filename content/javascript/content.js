@@ -1,4 +1,347 @@
-import Settings from './settings';
+class Settings{
+
+    #playerActive
+    #weirdClassnameMode
+    #edge
+    #upDownMode
+    #onOff
+    #buttonOnOff
+    #currentMultiplier
+    #textColor
+    #opacity
+    #originalTextOpacity
+    #originalTextColor
+    #originalTextSide
+    #videoChangeObserverConfig
+    #videoChangeObserver
+    #buttonConfig
+    #buttonObserver
+    #counter
+    #translationTrackerConfig
+    #myTimedTextElement
+    #lastSubs
+    #oldInset
+    #originalSubsPlacement
+    #cleared
+    #config
+    #oldText
+    #observer
+    #translationTracker
+    #baseFont
+    #currentSize
+    #netflixMode
+    #originalSubs
+    #firstRun
+
+
+
+    constructor() {
+        this.#playerActive = 0;
+        this.#weirdClassnameMode = 0;
+        this.#edge = 0;
+        this.#upDownMode = null;
+        this.#onOff = null;
+        this.#buttonOnOff = null;
+        this.#currentMultiplier = null;
+        this.#textColor = null;
+        this.#opacity = null;
+        this.#originalTextOpacity = null;
+        this.#originalTextColor = null;
+        this.#originalTextSide = null;
+        this.#videoChangeObserverConfig = null;
+        this.#videoChangeObserver = null;
+        this.#buttonConfig = null;
+        this.#buttonObserver = null;
+        this.#counter = null;
+        this.#translationTrackerConfig = null;
+        this.#myTimedTextElement = null;
+        this.#lastSubs = null;
+        this.#oldInset = null;
+        this.#originalSubsPlacement = null;
+        this.#cleared = null;
+        this.#config = null;
+        this.#oldText = null;
+        this.#observer = null;
+        this.#translationTracker = null;
+        this.#baseFont = null;
+        this.#currentSize = null;
+        this.#netflixMode = null;
+        this.#originalSubs = null;
+        this.#firstRun = null;
+    }
+
+    getPlayerActive(){
+        return this.#playerActive;
+    }
+
+    setPlayerActive(value){
+        this.#playerActive = value;
+    }
+
+    getWeirdClassnameMode(){
+        return this.#weirdClassnameMode;
+    }
+
+    setWeirdClassnameMode(value){
+        this.#weirdClassnameMode = value;
+    }
+
+    getEdge(){
+        return this.#edge
+    }
+
+    setEdge(value){
+        this.#edge = value
+    }
+
+    getUpDownMode(){
+        return this.#upDownMode;
+    }
+
+    setUpDownMode(value){
+        this.#upDownMode = value;
+    }
+
+    getOnOff(){
+        return this.#onOff;
+    }
+
+    setOnOff(value){
+        this.#onOff = value
+    }
+
+    getButtonOnOff(){
+        return this.#buttonOnOff
+    }
+
+    setButtonOnOff(value){
+        this.#buttonOnOff = value
+    }
+
+    //currentMultiplier
+    getCurrentMultiplier(){
+        return this.#currentMultiplier
+    }
+
+    setCurrentMultiplier(value){
+        this.#currentMultiplier = value
+    }
+
+    //textColor
+    getTextColor(){
+        return this.#textColor;
+    }
+
+    setTextColor(value){
+        this.#textColor = value
+    }
+
+    //originalTextOpacity
+    getOriginalTextOpacity(){
+        return this.#originalTextOpacity
+    }
+
+    setOriginalTextOpacity(value){
+        this.#originalTextOpacity = value
+    }
+
+    //originalTextColor
+    getOriginalTextColor(){
+        return this.#originalTextColor
+    }
+
+    setOriginalTextColor(value){
+        this.#originalTextColor = value
+    }
+
+    //opacity
+    getOpacity(){
+        return this.#opacity
+    }
+
+    setOpacity(value){
+        this.#opacity = value;
+    }
+
+    //originalTextSide
+    getOriginalTextSide(){
+        return this.#originalTextSide
+    }
+
+    setOriginalTextSide(value){
+        this.#originalTextSide = value
+    }
+
+    //videoChangeObserverConfig
+    getVideoChangeObserverConfig(){
+        return this.#videoChangeObserverConfig
+    }
+
+    setVideoChangeObserverConfig(object){
+        this.#videoChangeObserverConfig = object;
+    }
+
+    //videoChangeObserver
+    getVideoChangeObserver(){
+        return this.#videoChangeObserver
+    }
+
+    setVideoChangeObserver(object){
+        this.#videoChangeObserver = object;
+    }
+
+    //#buttonConfig
+    //     #buttonObserver
+
+
+    getButtonConfig(){
+        return this.#buttonConfig
+    }
+
+    setButtonConfig(object){
+        this.#buttonConfig = object;
+    }
+
+    getButtonObserver(){
+        return this.#buttonObserver;
+    }
+
+    setButtonObserver(object){
+        this.#buttonObserver = object;
+    }
+
+    getCounter(){
+        return this.#counter;
+    }
+
+    setCounter(value){
+        this.#counter = value;
+    }
+
+    //    #translationTrackerConfig
+    getTranslationTrackerConfig(){
+        return this.#translationTrackerConfig;
+    }
+
+    setTranslationTrackerConfig(object){
+        this.#translationTrackerConfig = object;
+    }
+
+    //#myTimedTextElement
+    getMyTimedTextElement(){
+        return this.#myTimedTextElement;
+    }
+
+    setMyTimedTextElement(element){
+        this.#myTimedTextElement = element
+    }
+
+    getLastSubs(){
+        return this.#lastSubs
+    }
+
+    setLastSubs(value){
+        this.#lastSubs = value;
+    }
+
+    //  #oldInset
+    getOldInset(){
+        return this.#oldInset;
+    }
+
+    setOldInset(value){
+        this.#oldInset = value;
+    }
+
+    //originalSubsPlacement
+    getOriginalSubsPlacement(){
+        return this.#originalSubsPlacement;
+    }
+
+    setOriginalSubsPlacement(value){
+        this.#originalSubsPlacement = value
+    }
+
+    getCleared(){
+        return this.#cleared
+    }
+
+    setCleared(value){
+        this.#cleared = value;
+    }
+
+    getConfig(){
+        return this.#config
+    }
+
+    setConfig(object){
+        this.#config = object;
+    }
+
+    getOldText(){
+        return this.#oldText;
+    }
+
+    setOldText(value){
+        this.#oldText = value;
+    }
+
+    getObserver(){
+        return this.#observer;
+    }
+
+    setObserver(object){
+        this.#observer = object;
+    }
+
+    getTranslationTracker(){
+        return this.#translationTracker
+    }
+
+    setTranslationTracker(object){
+        this.#translationTracker = object
+    }
+
+    getBaseFont(){
+        return this.#baseFont
+    }
+
+    setBaseFont(value){
+        this.#baseFont = value
+    }
+
+    getCurrentSize(){
+        return this.#currentSize
+    }
+
+    setCurrentSize(value){
+        this.#currentSize = value;
+    }
+
+    getNetflixMode(){
+        return this.#netflixMode;
+    }
+
+    setNetflixMode(value){
+        this.#netflixMode = value;
+    }
+
+    getOriginalSubs(){
+        return this.#originalSubs
+    }
+
+    setOriginalSubs(value){
+        this.#originalSubs = value
+    }
+
+    getFirstRun(){
+        return this.#firstRun
+    }
+
+    setFirstRun(value){
+        this.#firstRun = value;
+    }
+}
 
 const settings = new Settings();
 
@@ -28,33 +371,33 @@ catch(e){
 
 function waitForElement(selector) {
     return new Promise(function(resolve, reject) {
-      var element = document.querySelector(selector);
+        var element = document.querySelector(selector);
 
-      if(element) {
-        resolve(element);
-        return;
-      }
+        if(element) {
+            resolve(element);
+            return;
+        }
 
-      var observer = new MutationObserver(function(mutations) {
+        var observer = new MutationObserver(function(mutations) {
 
-        mutations.forEach(function(mutation){
-        var nodes = Array.from(mutation.addedNodes);
-        for(var node of nodes) {
+            mutations.forEach(function(mutation){
+                var nodes = Array.from(mutation.addedNodes);
+                for(var node of nodes) {
 
-            if(node.matches && node.matches(selector)) {
+                    if(node.matches && node.matches(selector)) {
 
-              observer.disconnect();
-              resolve(node);
-              return;
+                        observer.disconnect();
+                        resolve(node);
+                        return;
 
-            }
+                    }
 
-          };
+                };
+            });
+
         });
 
-      });
-  
-      observer.observe(document.documentElement, { childList: true, subtree: true });
+        observer.observe(document.documentElement, { childList: true, subtree: true });
 
     });
 }
@@ -103,34 +446,36 @@ function getSetting(setting){ //Pulling User Preferences from Chrome Storage
     });
 }
 
+wait_for_player_to_finish_loading()
+
 function wait_for_player_to_finish_loading(){
     //Waiting for flex elements doesn't work, so we have to use the full xpath instead
     waitForElement("#appMountPoint > div > div >div > div > div > div:nth-child(1) > div > div > div > div").then(function(element) {
-        
+
         try{
             actual_create_buttons();}
         catch(e){
-           // console.log("Error creating buttons, likely no bar visible");
+            // console.log("Error creating buttons, likely no bar visible");
         }
 
-        //Once the player is found, we pull color settings in anticipation for subtitles 
+        //Once the player is found, we pull color settings in anticipation for subtitles
         getSetting('text_color');
         getSetting('opacity');
         getSetting('originaltext_opacity');
         getSetting('font_multiplier');
         //getSetting('sub_distance'); disabled for now, unnecessary imo
-        //getSetting('text_side'); 
+        //getSetting('text_side');
 
         settings.setOriginalTextSide(0)
         initialize_button_observer();
         llsubs();
-    
+
     });
 }
 
 //Button Stuff
 //Need an observer to wait until the control button row element is created, then the buttons are added, and THEN we can wait for subtitles
-//This observer was made "quick and dirty", worked the first try so I'll just leave it and worry about more efficient approach later 
+//This observer was made "quick and dirty", worked the first try so I'll just leave it and worry about more efficient approach later
 settings.setVideoChangeObserverConfig({childList:true, subtree:true,})
 var last_url=location.href;
 
@@ -142,7 +487,7 @@ var callback = function(mutationsList, observer){ //The main observer to check f
         try {var current_id = location.href.split('/watch/')[1].split('?')[0];}catch(e){var current_id=0;}
 
         // New way to determine video changes, way more efficient
-        // To be fair though, this wouldn't have worked before the netflix interface update as the observers would have persisted and caused endless instances to be created  
+        // To be fair though, this wouldn't have worked before the netflix interface update as the observers would have persisted and caused endless instances to be created
         if (mutation.type === 'childList' && (mutation.target.className===" ltr-1b8gkd7-videoCanvasCss" || mutation.target.className== " ltr-op8orf" || mutation.target.className==" ltr-1212o1j") && mutation.addedNodes.length){
             //console.log("New Video!");
             if(mutation.target.className===" ltr-1b8gkd7-videoCanvasCss"){
@@ -162,46 +507,46 @@ var callback = function(mutationsList, observer){ //The main observer to check f
         if (mutation.addedNodes.length==1 && mutation.previousSibling){ //9/3/22 - bug fix, observer wasnt being renewed on autoplay
             if(parseInt(mutation.addedNodes[0].id),parseInt(mutation.previousSibling.id)){
                 if(parseInt(current_id)!=parseInt(mutation.previousSibling.id)){
-                    
+
                     if(mutation.target.parentNode.className===" ltr-1b8gkd7-videoCanvasCss"){
                         settings.setWeirdClassnameMode(1)
                     }
                     prepare_for_dual_subs();
                 }
-                
+
             }
-            
+
         }
-        
+
     }
 }
 settings.setVideoChangeObserver(new MutationObserver(callback))
 settings.getVideoChangeObserver().observe(document.documentElement,settings.getVideoChangeObserverConfig())
 function prepare_for_dual_subs(){ //Starts the observer that waits for the video player to finish loading after a page/video change
-        //Enables right click
-        var elements = document.getElementsByTagName("*");
-        for(var id = 0; id < elements.length; ++id) { elements[id].addEventListener('contextmenu',function(e){e.stopPropagation()},true);elements[id].oncontextmenu = null; }
-        
-        // getSetting('button_up_down_mode');
-        getSetting('originaltext_color');
-        getSetting('button_on_off');
-        
-        //Use to be able to create buttons before bottom bar was visible, can't anymore so button creation
-        //is moved to after player is detected now
+    //Enables right click
+    var elements = document.getElementsByTagName("*");
+    for(var id = 0; id < elements.length; ++id) { elements[id].addEventListener('contextmenu',function(e){e.stopPropagation()},true);elements[id].oncontextmenu = null; }
 
-        wait_for_player_to_finish_loading();
+    // getSetting('button_up_down_mode');
+    getSetting('originaltext_color');
+    getSetting('button_on_off');
+
+    //Use to be able to create buttons before bottom bar was visible, can't anymore so button creation
+    //is moved to after player is detected now
+
+    wait_for_player_to_finish_loading();
 
 
 }
 
 function actual_create_buttons(){
-   // console.log("Creating buttons..");
+    // console.log("Creating buttons..");
 
     if (!settings.getOnOff() || !settings.getButtonOnOff()){ //Buttons disabled for now so I can get working subs out as fast as possible
         return;
     }
     if (document.getElementById('myTutorialButton')){
-       // console.log("Buttons alreayd made");
+        // console.log("Buttons alreayd made");
         return;
     }
 
@@ -209,31 +554,31 @@ function actual_create_buttons(){
     buttonSpacing.innerHTML='<div class="ltr-14rufaj" style="min-width: 3rem; width: 3rem;"></div>';
     buttonSpacing=buttonSpacing.firstElementChild;
     try{
-    document.querySelector('button[aria-label="Seek Back"]').parentElement.parentElement.appendChild(buttonSpacing);
+        document.querySelector('button[aria-label="Seek Back"]').parentElement.parentElement.appendChild(buttonSpacing);
     }
     catch(e){
-       // console.log("No bar 1");
+        // console.log("No bar 1");
         return;
     }
 
     // '<div class="medium ltr-my293h" id="myTutorialButton"><button aria-label="Decrease Font Size" class=" ltr-1enhvti" data-uia="control-fontsize-minus"><div class="control-medium ltr-18dhnor" role="presentation"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="Hawkins-Icon Hawkins-Icon-Standard">\
     // <path clip-rule="evenodd" \
     // d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" \
-    // fill="none" stroke="yellow" stroke-width="2"></path></svg></div></button></div>'; 
+    // fill="none" stroke="yellow" stroke-width="2"></path></svg></div></button></div>';
 
     let buttonOne = document.createElement('DIV');
-    buttonOne.innerHTML ='<div class="medium ltr-my293h" id="myTutorialButton"><button aria-label="Open Tutorial" class=" ltr-14ph5iy" data-uia="control-fontsize-minus"><div class="control-medium ltr-1evcx25" role="presentation"><svg width="24" height="24" viewBox="-1 0 24 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="Hawkins-Icon Hawkins-Icon-Standard"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" fill="none" stroke="yellow" stroke-width=".7"></path></svg></div></button></div>'; 
+    buttonOne.innerHTML ='<div class="medium ltr-my293h" id="myTutorialButton"><button aria-label="Open Tutorial" class=" ltr-14ph5iy" data-uia="control-fontsize-minus"><div class="control-medium ltr-1evcx25" role="presentation"><svg width="24" height="24" viewBox="-1 0 24 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="Hawkins-Icon Hawkins-Icon-Standard"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" fill="none" stroke="yellow" stroke-width=".7"></path></svg></div></button></div>';
     if (settings.getWeirdClassnameMode()){
-        buttonOne.innerHTML ='<div class="medium ltr-my293h" id="myTutorialButton"><button aria-label="Open Tutorial" class=" ltr-14ph5iy" data-uia="control-fontsize-minus"><div class="control-medium ltr-1evcx25" role="presentation"><svg width="24" height="24" viewBox="-1 0 24 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="Hawkins-Icon Hawkins-Icon-Standard"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" fill="none" stroke="yellow" stroke-width=".7"></path></svg></div></button></div>'; 
+        buttonOne.innerHTML ='<div class="medium ltr-my293h" id="myTutorialButton"><button aria-label="Open Tutorial" class=" ltr-14ph5iy" data-uia="control-fontsize-minus"><div class="control-medium ltr-1evcx25" role="presentation"><svg width="24" height="24" viewBox="-1 0 24 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" class="Hawkins-Icon Hawkins-Icon-Standard"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" fill="none" stroke="yellow" stroke-width=".7"></path></svg></div></button></div>';
 
     }
     buttonOne=buttonOne.firstElementChild;
 
     try{
-    document.querySelector('button[aria-label="Seek Back"]').parentElement.parentElement.appendChild(buttonOne);
+        document.querySelector('button[aria-label="Seek Back"]').parentElement.parentElement.appendChild(buttonOne);
     }
     catch(e){
-       // console.log("No bar 2");
+        // console.log("No bar 2");
         return;
     }
     buttonOne.onmouseenter=function(){
@@ -246,11 +591,11 @@ function actual_create_buttons(){
     }
     buttonOne.onmouseleave=function(){
         if (settings.getWeirdClassnameMode()){
-        buttonOne.firstChild.className=' ltr-14ph5iy-controlButtonCss';
-    }
-    else{
-        buttonOne.firstChild.className=' ltr-14ph5iy';
-    }
+            buttonOne.firstChild.className=' ltr-14ph5iy-controlButtonCss';
+        }
+        else{
+            buttonOne.firstChild.className=' ltr-14ph5iy';
+        }
     }
 
     buttonSpacing = document.createElement('DIV');
@@ -261,12 +606,12 @@ function actual_create_buttons(){
         document.querySelector('button[aria-label="Seek Back"]').parentElement.parentElement.appendChild(buttonSpacing);
     }
     catch(e){
-       // console.log("No bar 3");
+        // console.log("No bar 3");
         return;
     }
 
     if (settings.getOriginalTextColor()){
-    document.getElementById('myTutorialButton').firstChild.firstChild.firstChild.firstElementChild.setAttribute('stroke',settings.getOriginalTextColor());
+        document.getElementById('myTutorialButton').firstChild.firstChild.firstChild.firstElementChild.setAttribute('stroke',settings.getOriginalTextColor());
     }
 
     buttonOne.addEventListener("click", function() {
@@ -276,20 +621,20 @@ function actual_create_buttons(){
     });
 
     //bump up text
-   
 
-        
+
+
 }
 function open_browser_action(){
 
     chrome.runtime.sendMessage({
         "message":"open_popup",
         "value": this.checked
-        });
+    });
 
 }
-function initialize_button_observer(){ 
-    //This keeps track of the bottom playback bar, 
+function initialize_button_observer(){
+    //This keeps track of the bottom playback bar,
     //it has to create buttons every time it appears since the element is destroyed rather than hidden
 
     var id = "watch-video--player-view";
@@ -299,17 +644,17 @@ function initialize_button_observer(){
 
     const callback = function(mutationsList,button_observer){
         for (const mutation of mutationsList){
-           
-             if (mutation.target.className==='active ltr-omkt8s' || mutation.target.className==='active ltr-gwjau2-playerCss'){
-                 //console.log("Bottom bar visible");
+
+            if (mutation.target.className==='active ltr-omkt8s' || mutation.target.className==='active ltr-gwjau2-playerCss'){
+                //console.log("Bottom bar visible");
                 if (mutation.target.className==='active ltr-gwjau2-playerCss'){
                     settings.setNetflixMode(2)
                 }
                 actual_create_buttons();
-             }
-           
+            }
+
         }
-       
+
     };
 
     settings.setButtonObserver(new MutationObserver(callback));
@@ -342,18 +687,18 @@ function llsubs(){
         // console.log("Up Down Mode");
         //Pointer-events: none added to prevent bigger sized text from stopping you interacting with the seekbar
         $(".watch-video").append(`<div class='my-timedtext-container' style='pointer-events: none; display: block; white-space: nowrap; max-width:100%; text-align: center; position: absolute; left: 50%; bottom: 22%;-webkit-transform: translateX(-50%); transform: translateX(-50%); font-size:21px;line-height:normal;font-weight:normal;color:#ffffff;text-shadow:#000000 0px 0px 7px;font-family:Netflix Sans,Helvetica Nueue,Helvetica,Arial,sans-serif;font-weight:bolder'><span id=my_subs_innertext></span></div>`)
-        
-        
-        if(settings.getOnOff()){
-        let st = document.createElement('style'); 
-        
-        st.innerText='.player-timedtext br{content: "";}' +
-        '.my-timedtext-container br{content: "";}' +
-        '.player-timedtext br:after{content: " ";}' +
-        '.my-timedtext-container br:after{content: " ";}';
 
-        st.className='injected-style';
-        document.head.appendChild(st);
+
+        if(settings.getOnOff()){
+            let st = document.createElement('style');
+
+            st.innerText='.player-timedtext br{content: "";}' +
+                '.my-timedtext-container br{content: "";}' +
+                '.player-timedtext br:after{content: " ";}' +
+                '.my-timedtext-container br:after{content: " ";}';
+
+            st.className='injected-style';
+            document.head.appendChild(st);
         }
         else{
             // console.log("DIDNT INJECT");
@@ -366,46 +711,46 @@ function llsubs(){
 
         // console.log("Left Right Mode");
         $(".watch-video").append(`<div class='my-timedtext-container' style='display: block; white-space: pre-wrap; text-align: center; position: absolute; left: 2.5%; bottom: 18%; font-size:21px;line-height:normal;font-weight:normal;color:#ffffff;text-shadow:#000000 0px 0px 7px;font-family:Netflix Sans,Helvetica Nueue,Helvetica,Arial,sans-serif;font-weight:bolder'><span id=my_subs_innertext></span></div>`)
-    
+
     }
     settings.setCounter(1)
     //Create an observer to track when a translation happens. Need for dealing with text going offscreen
     const translation_tracker_callback = function(mutationsList,observer){
         for (const mutation of mutationsList){
             if(mutation.target.className==='my-timedtext-container' && mutation.type==='attributes' && mutation.attributeName==='_msttexthash'){
-            //edge
-            settings.setCounter(settings.getCounter() + 1);
-            let lines = document.querySelector('.my-timedtext-container'); 
-            
-            let temp_size=parseFloat(lines.style['font-size'].replace('px',''));
-            while(lines.offsetWidth > lines.parentNode.clientWidth-50 && temp_size > 8){
-                temp_size-=2;
-                lines.style['font-size']=temp_size+'px';
-                // console.log("Changing from: "+window.current_size+ ' To: '+temp_size+'px');
-    
-            }
-
-            }
-            else if(mutation.target.className==='my-timedtext-container' && mutation.addedNodes.length==1 && mutation.addedNodes[0].nodeName==='FONT'){ //Chrome
+                //edge
                 settings.setCounter(settings.getCounter() + 1);
-                let lines = document.querySelector('.my-timedtext-container'); 
+                let lines = document.querySelector('.my-timedtext-container');
+
                 let temp_size=parseFloat(lines.style['font-size'].replace('px',''));
                 while(lines.offsetWidth > lines.parentNode.clientWidth-50 && temp_size > 8){
                     temp_size-=2;
                     lines.style['font-size']=temp_size+'px';
                     // console.log("Changing from: "+window.current_size+ ' To: '+temp_size+'px');
-        
+
                 }
 
             }
-            // console.log(mutation);
+            else if(mutation.target.className==='my-timedtext-container' && mutation.addedNodes.length==1 && mutation.addedNodes[0].nodeName==='FONT'){ //Chrome
+                settings.setCounter(settings.getCounter() + 1);
+                let lines = document.querySelector('.my-timedtext-container');
+                let temp_size=parseFloat(lines.style['font-size'].replace('px',''));
+                while(lines.offsetWidth > lines.parentNode.clientWidth-50 && temp_size > 8){
+                    temp_size-=2;
+                    lines.style['font-size']=temp_size+'px';
+                    console.log("Changing from: "+window.current_size+ ' To: '+temp_size+'px');
+
+                }
+
+            }
+            console.log(mutation);
         }
     }
     settings.setTranslationTrackerConfig({ attributes: true, childList: true, subtree:true})
     settings.setMyTimedTextElement(document.getElementsByClassName('my-timedtext-container')[0])
     settings.getMyTimedTextElement().setAttribute('translate','yes');
     settings.setLastSubs('')
-    
+
     //For Placement
     settings.setOldInset(timedtext.style.inset)
     settings.setOriginalSubsPlacement(parseInt(document.getElementsByClassName("player-timedtext")[0].getBoundingClientRect().width)*.025)
@@ -418,7 +763,7 @@ function llsubs(){
         for (const mutation of mutationsList){
             // console.log(mutation);
             if (mutation.type === 'childList' && mutation.target.className && mutation.target.className==="player-timedtext"){ //track removal/addition to subtitle container
-                
+
                 if (mutation.addedNodes.length===1){ //If added rather than removed..
 
                     if (mutation.target.innerText!==settings.getOldText()){
@@ -433,118 +778,121 @@ function llsubs(){
 
                     this.disconnect(); //stop observer so I can add subs without triggering this infinitely
                     addSubs(timedtext); //add subs
-                    
+
                 }
                 else{
-                
+
                     if (mutation.target.childElementCount===0){ //No children means the mutation was a subtitle CLEAR rather than refresh, double check necessary because refresh would make it here as well but with children (..i think? I forget at this point)
-                        
+
                         settings.setCleared(1)
                         document.getElementsByClassName('my-timedtext-container')[0].innerText = "";
                         settings.setLastSubs("")
 
                     }
-                    
+
                 }
-                
-                
+
+
             }
-            
+
             else if(settings.getOnOff() && mutation.type==='attributes' && mutation.target.className==="player-timedtext" && mutation.target.firstChild && mutation.target.style.inset != settings.getOldInset()){ //For adjusting subtitle style when window is resized
-                    //Netflix constantly refreshes the text so I have to constantly reapply them
-                    try{ //Reapplying edge translator skip just in case. this thing is stubborn
-                        Array.from(document.querySelector('.player-timedtext').children).forEach(e=>e.setAttribute('_istranslated','1')); //MIGHT WORK FOR DUAL COMPATIBILITY!!!! (spoofs edge translator to skip since translate tag doesnt work)
-                        }
-                        catch(e){
-                            console.log("No subs");
-                        }
+                //Netflix constantly refreshes the text so I have to constantly reapply them
+                try{ //Reapplying edge translator skip just in case. this thing is stubborn
+                    Array.from(document.querySelector('.player-timedtext').children).forEach(e=>e.setAttribute('_istranslated','1')); //MIGHT WORK FOR DUAL COMPATIBILITY!!!! (spoofs edge translator to skip since translate tag doesnt work)
+                }
+                catch(e){
+                    console.log("No subs");
+                }
 
-                    const caption_row = document.getElementsByClassName("player-timedtext")[0];
-                    var container_count = caption_row.childElementCount;
-                    if (container_count == 2){ // Why work around Netflix sometimes using a seperate container for each row when I can just force it back into using one.. wish I'd done this earlier
-                        document.getElementsByClassName('player-timedtext-text-container')[0].firstChild.innerText= document.getElementsByClassName('player-timedtext-text-container')[0].firstChild.innerText + '\n '+ document.getElementsByClassName("player-timedtext-text-container")[1].firstChild.innerText;
-                        $('.player-timedtext-text-container')[1].remove();    
-                        container_count=0;
-                    }
+                const caption_row = document.getElementsByClassName("player-timedtext")[0];
+                var container_count = caption_row.childElementCount;
+                if (container_count == 2){ // Why work around Netflix sometimes using a seperate container for each row when I can just force it back into using one.. wish I'd done this earlier
+                    document.getElementsByClassName('player-timedtext-text-container')[0].firstChild.innerText= document.getElementsByClassName('player-timedtext-text-container')[0].firstChild.innerText + '\n '+ document.getElementsByClassName("player-timedtext-text-container")[1].firstChild.innerText;
+                    $('.player-timedtext-text-container')[1].remove();
+                    container_count=0;
+                }
 
 
-                    settings.setBaseFont(parseFloat(mutation.target.firstChild.firstChild.firstChild.style.fontSize.replace('px',''))); //font size changes way more often than on nrk so will take basefont after every clear instead (if inset updates, update this as well)
-                    settings.setCurrentSize(settings.getBaseFont() * settings.getCurrentMultiplier()+'px');
-                    update_style('font_size');
-                    //update_style('originaltext_opacity');
-                    //update_style('originaltext_color');
+                settings.setBaseFont(parseFloat(mutation.target.firstChild.firstChild.firstChild.style.fontSize.replace('px',''))); //font size changes way more often than on nrk so will take basefont after every clear instead (if inset updates, update this as well)
+                settings.setCurrentSize(settings.getBaseFont() * settings.getCurrentMultiplier()+'px');
+                update_style('font_size');
+                //update_style('originaltext_opacity');
+                //update_style('originaltext_color');
 
-                    if (settings.getUpDownMode()){
-                        // window.my_timedtext_element.style['left']='2.5%';
-                        settings.getMyTimedTextElement().left='50%';
-                        settings.getMyTimedTextElement().transform='translate(-50%)';
-                        settings.getMyTimedTextElement().webkitTransform='translateX(-50%)';
-                        
+                if (settings.getUpDownMode()){
+                    // window.my_timedtext_element.style['left']='2.5%';
+                    settings.getMyTimedTextElement().left='50%';
+                    settings.getMyTimedTextElement().transform='translate(-50%)';
+                    settings.getMyTimedTextElement().webkitTransform='translateX(-50%)';
+
+
+                }
+                else{
+                    if (settings.getOriginalTextSide() == 0){
+                        settings.setOriginalSubsPlacement(parseInt(document.getElementsByClassName("player-timedtext")[0].getBoundingClientRect().x)+ (parseInt(document.getElementsByClassName("player-timedtext")[0].getBoundingClientRect().width)*.025));
+                        var sub_dist = (parseInt(document.getElementsByClassName("player-timedtext")[0].firstChild.getBoundingClientRect().width)+(settings.getOriginalSubsPlacement())+10);
+                        settings.getMyTimedTextElement().style['left']=sub_dist+'px';
 
                     }
                     else{
-                        if (settings.getOriginalTextSide() == 0){
-                            settings.setOriginalSubsPlacement(parseInt(document.getElementsByClassName("player-timedtext")[0].getBoundingClientRect().x)+ (parseInt(document.getElementsByClassName("player-timedtext")[0].getBoundingClientRect().width)*.025));
-                            var sub_dist = (parseInt(document.getElementsByClassName("player-timedtext")[0].firstChild.getBoundingClientRect().width)+(settings.getOriginalSubsPlacement())+10);
-                            settings.getMyTimedTextElement().style['left']=sub_dist+'px';
-
-                        }
-                        else{
-                            settings.setOriginalSubsPlacement(parseInt(my_timedtext_element.getBoundingClientRect().x)+ parseInt(my_timedtext_element.getBoundingClientRect().width));
-                            var sub_dist = (settings.getOriginalSubsPlacement())+10 - parseInt(document.getElementsByClassName("player-timedtext")[0].getBoundingClientRect().x);
-                            document.getElementsByClassName("player-timedtext")[0].firstChild.style['left']=sub_dist+'px';
-                        }
+                        settings.setOriginalSubsPlacement(parseInt(my_timedtext_element.getBoundingClientRect().x)+ parseInt(my_timedtext_element.getBoundingClientRect().width));
+                        var sub_dist = (settings.getOriginalSubsPlacement())+10 - parseInt(document.getElementsByClassName("player-timedtext")[0].getBoundingClientRect().x);
+                        document.getElementsByClassName("player-timedtext")[0].firstChild.style['left']=sub_dist+'px';
                     }
+                }
 
-                
+
             }
 
             if(settings.getOnOff() && mutation.type==='attributes' && (mutation.target.className==="player-timedtext-text-container notranslate" || mutation.target.className==='player-timedtext-text-container') ){
                 // console.log("TRANSLATION");
-                // let lines = document.querySelector('.my-timedtext-container'); 
+                // let lines = document.querySelector('.my-timedtext-container');
                 // if(lines.offsetWidth === lines.parentNode.clientWidth){
                 //     console.log('OVERLAPPING');
                 //     let temp_size=parseFloat(lines.style['font-size'].replace('px',''));
                 //     temp_size-=5;
                 //     lines.style['font-size']=temp_size+'px';
                 //     console.log("Changing from: "+window.current_size+ ' To: '+temp_size+'px');
-        
+
                 // }
-                
+
             }
 
-            
+
         }
     };
 
     settings.setObserver(new MutationObserver(callback))
     settings.getObserver().observe(timedtext,settings.getConfig())
     settings.setTranslationTracker(new MutationObserver(translation_tracker_callback))
+    console.log(settings.getMyTimedTextElement())
+    console.log(settings.getTranslationTrackerConfig())
+    console.log(settings.getTranslationTracker())
     settings.getTranslationTracker().observe(settings.getMyTimedTextElement(), settings.getTranslationTrackerConfig())
 
 }
 
-var addSubs = function(caption_row){ 
+var addSubs = function(caption_row){
 
-   if(caption_row.firstChild!=null && settings.getOnOff()){ // Ensures Subs were added rather than removed, probably redundant
-        
-        var container_count = caption_row.childElementCount; 
+    if(caption_row.firstChild!=null && settings.getOnOff()){ // Ensures Subs were added rather than removed, probably redundant
+
+        var container_count = caption_row.childElementCount;
         try{
-        settings.setBaseFont(parseFloat(caption_row.firstChild.firstChild.firstChild.style.fontSize.replace('px','')));
+            settings.setBaseFont(parseFloat(caption_row.firstChild.firstChild.firstChild.style.fontSize.replace('px','')));
         }
         catch(e){
             settings.setBaseFont(parseFloat(caption_row.firstChild.firstChild.style.fontSize.replace('px','')));
             //console.log('error getting font');
         }
         if (container_count >1){ // Why work around Netflix sometimes using a seperate container for each row when I can just force it back into using one.. wish I'd done this earlier
-            
+
             let count = caption_row.childElementCount;
             let final_innerText = '';
-            
+
             let final_style = caption_row.firstChild.firstChild.firstChild.getAttribute('style');
 
             for (let i = 0; i<count;i++){
-                
+
                 final_innerText+=document.getElementsByClassName('player-timedtext-text-container')[i].firstChild.innerText;
                 if (i<caption_row.childElementCount-1){
                     final_innerText+='\n';
@@ -561,18 +909,18 @@ var addSubs = function(caption_row){
 
         var old_style = caption_row.firstChild.style
         if(settings.getUpDownMode()){ //Stacked
-            caption_row.firstChild.setAttribute('style','display: block; white-space: nowrap; max-width:100%;text-align: center; position: absolute; left: 50%; bottom:22%; -webkit-transform: translateX(-50%); transform: translateX(-50%);');   
+            caption_row.firstChild.setAttribute('style','display: block; white-space: nowrap; max-width:100%;text-align: center; position: absolute; left: 50%; bottom:22%; -webkit-transform: translateX(-50%); transform: translateX(-50%);');
         }
         else{ //Left - Right subs
-        caption_row.firstChild.setAttribute('style','display: block; white-space: pre-wrap; text-align: center; position: absolute; left: 2.5%; bottom: 18%;');
+            caption_row.firstChild.setAttribute('style','display: block; white-space: pre-wrap; text-align: center; position: absolute; left: 2.5%; bottom: 18%;');
         }
         caption_row.firstChild.setAttribute('translate','no'); //stopped working for edge
-        // 
-        
+        //
+
         if(settings.getEdge()){ //This seems to be the best option for now, keep an eye on it though
             caption_row.firstChild.className+=' notranslate';
         }
-        
+
         //Graveyard of attempts to block edge translation
         // caption_row.firstChild.setAttribute('_isTranslated',1);
         // caption_row.firstChild.setAttribute('skiptranslate',1);
@@ -580,7 +928,7 @@ var addSubs = function(caption_row){
         // caption_row.firstChild.setAttribute('_mstHidden',1);
         // caption_row.firstChild.setAttribute('_mstHiddenAttr',1); //One of these worked.. but not consistently
         // try{ //Edge translator so annoying.. This should work for now
-        // Array.from(document.querySelector('.player-timedtext-text-container').querySelectorAll('*')).forEach(function(e){e.setAttribute('_isTranslated',1);e.setAttribute('_mstMutation','1')}); 
+        // Array.from(document.querySelector('.player-timedtext-text-container').querySelectorAll('*')).forEach(function(e){e.setAttribute('_isTranslated',1);e.setAttribute('_mstMutation','1')});
         // }
         // catch(e){
         //     // console.log("No subs");
@@ -595,7 +943,7 @@ var addSubs = function(caption_row){
         if (settings.getOriginalTextSide() == 1){
             caption_row.firstChild.style['left']='97.5%';
         }
-        
+
 
         if (settings.getOriginalSubs() !== settings.getLastSubs()){
             settings.setLastSubs(settings.getOriginalSubs())
@@ -607,14 +955,14 @@ var addSubs = function(caption_row){
         //window.baseFont = parseFloat(caption_row.firstChild.firstChild.firstChild.style.fontSize.replace('px','')); //font size changes way easily than on nrk so will take basefont after every clear instead (if change inset update, change this as well)
         settings.setCurrentSize(settings.getBaseFont() * settings.setCurrentMultiplier() +'px');
 
-    
+
         if(settings.getUpDownMode()){
             var sub_bot = parseFloat(document.getElementsByClassName('player-timedtext')[0].style.inset.split(' ')[0].replace('px','')) + parseFloat('.'+document.getElementsByClassName('player-timedtext')[0].firstChild.style['bottom'])*document.getElementsByClassName('player-timedtext')[0].getBoundingClientRect().height;
             settings.getMyTimedTextElement().style['bottom']=(sub_bot-(settings.getBaseFont() * settings.getCurrentMultiplier())-10)+'px';
 
             let orig = document.getElementsByClassName('player-timedtext')[0].firstChild;
             // console.log(' orig.offsetWidth= ',orig.offsetWidth,' orig.parentNode.clientWidth= ',orig.parentNode.clientWidth,' baseFont=',window.baseFont)
-            
+
             //Deal with overflow
             let temp_size= settings.getBaseFont();
             //1/31/23 - In edge, this causes translation so will need to apply translation block to all spans under player-timedtext.
@@ -622,11 +970,11 @@ var addSubs = function(caption_row){
             while(orig.offsetWidth > orig.parentNode.clientWidth-150 && temp_size>8){ //doesnt allow smaller than 15, to prevent this running too long in some edge case I tested
                 temp_size-=2;
                 orig.firstChild.firstChild.style.fontSize=temp_size+'px';
-                
+
                 if(settings.getEdge()){orig.firstChild.className+=' notranslate';}
                 for (let i =0;i<document.getElementsByClassName("player-timedtext")[0].firstChild.firstChild.children.length;i++){
                     if(settings.getEdge()){
-                    orig.firstChild.children[i].className+=' notranslate';
+                        orig.firstChild.children[i].className+=' notranslate';
                     }
                     orig.firstChild.children[i].style.fontSize=temp_size+'px';
                 }
@@ -656,7 +1004,7 @@ var addSubs = function(caption_row){
 
             }
         }
-        
+
         if (settings.getFirstRun()){
             actual_create_buttons;
             settings.setFirstRun(0)
@@ -665,18 +1013,18 @@ var addSubs = function(caption_row){
         update_style('text_color');
         update_style('opacity');
         update_style('font_size');
-        //update_style('original_font_size');//I'll do this later, currently a bit tricky since the current font size modification is uses the original subs as the base value 
-        
+        //update_style('original_font_size');//I'll do this later, currently a bit tricky since the current font size modification is uses the original subs as the base value
+
     }
     settings.getObserver().observe(caption_row,settings.getConfig())
 
 }
 
 function update_style(setting){
-    
+
     var lines = settings.getMyTimedTextElement();
     try{
-    
+
         var original_lines = document.getElementsByClassName("player-timedtext")[0].firstChild.firstChild; //8/30/22 bug here
 
     }
@@ -704,12 +1052,12 @@ function update_style(setting){
         //     console.log("Changing orig from: "+window.current_size+ ' To: '+temp_size+'px');
 
         // }
-        
+
     }
     else if (setting === "text_color"){
 
         lines.style['color']= settings.getTextColor();
-        
+
         //following line is for multi-container support, but doesn't affect single container mode so I didn't bother with an if(container_count)
         document.getElementsByClassName('player-timedtext')[0].firstChild.firstChild.style['color']= settings.getOriginalTextColor();
 
@@ -722,8 +1070,8 @@ function update_style(setting){
 
     else if (setting === "opacity"){
 
-            lines.style["opacity"]= settings.getOpacity();
-            original_lines.style["opacity"]= settings.getOriginalTextOpacity();
+        lines.style["opacity"]= settings.getOpacity();
+        original_lines.style["opacity"]= settings.getOriginalTextOpacity();
 
     }
 
@@ -742,51 +1090,51 @@ chrome.runtime.onMessage.addListener( //Listens for messages sent from backgroun
         if (request.message === "update_on_off"){
             settings.setOnOff(request.value);
             if (!settings.getOnOff()){
-                
+
                 try{
 
                     settings.getMyTimedTextElement().style['display']='none';
                     Array.from(document.querySelector('.player-timedtext').querySelectorAll('*')).forEach(e=>e.style['color']='#FFFFFF');
                     document.querySelector('.player-timedtext-text-container').style['left']='50%';
                     document.querySelector('.player-timedtext-text-container').style['transform']='translate(-50%)';
-                    document.querySelector('.player-timedtext-text-container').style['-webkit-transform']='translateX(-50%)'; 
+                    document.querySelector('.player-timedtext-text-container').style['-webkit-transform']='translateX(-50%)';
                     document.querySelector('.injected-style').remove();
-                    
+
                 }
                 catch(e){
-                   console.log(e);
+                    console.log(e);
                 }
                 try{
 
                     document.getElementById("myTutorialButton").style.display='none';
                 }
                 catch(e){
-                   // console.log(e);
+                    // console.log(e);
                 }
             }
             else{
 
-                let st = document.createElement('style'); 
-        
+                let st = document.createElement('style');
+
                 st.innerText='.player-timedtext br{content: "";}' +
-                '.my-timedtext-container br{content: "";}' +
-                '.player-timedtext br:after{content: " ";}' +
-                '.my-timedtext-container br:after{content: " ";}';
+                    '.my-timedtext-container br{content: "";}' +
+                    '.player-timedtext br:after{content: " ";}' +
+                    '.my-timedtext-container br:after{content: " ";}';
 
                 st.className='injected-style';
                 document.head.appendChild(st);
 
                 try{
                     settings.getMyTimedTextElement().style['display']='block';
-                    
+
                     for (let i =0;i<document.getElementsByClassName("player-timedtext")[0].firstChild.children.length;i++){
                         document.getElementsByClassName("player-timedtext")[0].firstChild.children[i].style['color']= settings.getOriginalTextColor();
                     }
                 }
                 catch(e){
-                // console.log(e);
+                    // console.log(e);
                 }
-                
+
                 try{
                     document.getElementById("myTutorialButton").style.display='block';
                 }
@@ -799,26 +1147,26 @@ chrome.runtime.onMessage.addListener( //Listens for messages sent from backgroun
         if (request.message === "update_button_on_off"){
             settings.setButtonOnOff(request.value);
             if (!settings.getButtonOnOff()){
-                
+
                 try{
-                document.getElementById("myTutorialButton").style.display='none';
+                    document.getElementById("myTutorialButton").style.display='none';
                 }
                 catch(e){
-                   // console.log(e);
+                    // console.log(e);
                 }
             }
             else{
-                
+
                 try{
-                document.getElementById("myTutorialButton").style.display='block';
+                    document.getElementById("myTutorialButton").style.display='block';
                 }
                 catch(e){
-                   // console.log(e);
+                    // console.log(e);
                     actual_create_buttons();
                 }
             }
         }
-        
+
         if (request.message==='update_font_multiplier'){
 
             //console.log("Recieved Message from BACKGROUND.JS to CHANGE font_multiplier to " + request.value);
@@ -864,13 +1212,13 @@ chrome.runtime.onMessage.addListener( //Listens for messages sent from backgroun
 
             //console.log("Recieved Message from BACKGROUND.JS to CHANGE opacity to " + request.value);
             settings.setOriginalTextColor(request.value)
-            
+
             update_style('text_color');
             try{
                 document.getElementById('myTutorialButton').firstChild.firstChild.firstChild.firstElementChild.setAttribute('stroke', settings.getOriginalTextColor());
             }
             catch(e){
-               // console.log(e);
+                // console.log(e);
             }
         }
 
@@ -886,7 +1234,7 @@ chrome.runtime.onMessage.addListener( //Listens for messages sent from backgroun
                 settings.getMyTimedTextElement().style['white-space']='pre-wrap';
                 try{
                     document.querySelector('.injected-style').remove();
-                    
+
                 }
                 catch(e){
                     // console.log("No injected css");
@@ -898,10 +1246,10 @@ chrome.runtime.onMessage.addListener( //Listens for messages sent from backgroun
                     settings.setOriginalSubsPlacement(parseInt(document.getElementsByClassName("player-timedtext")[0].getBoundingClientRect().x)+ (parseInt(document.getElementsByClassName("player-timedtext")[0].getBoundingClientRect().width)*.025));
                     var sub_dist = (parseInt(document.getElementsByClassName("player-timedtext")[0].firstChild.getBoundingClientRect().width)+(settings.getOriginalSubsPlacement())+10);
                     settings.getMyTimedTextElement().style['left']=sub_dist+'px';
-                    
-                    
+
+
                     try{
-                    document.querySelector('.player-timedtext-text-container').setAttribute('style','display: block; white-space: pre-wrap; text-align: center; position: absolute; left: 2.5%; bottom: 18%;');
+                        document.querySelector('.player-timedtext-text-container').setAttribute('style','display: block; white-space: pre-wrap; text-align: center; position: absolute; left: 2.5%; bottom: 18%;');
                     }
                     catch(e){
                         //console.log("No subs onscreen");
@@ -911,22 +1259,22 @@ chrome.runtime.onMessage.addListener( //Listens for messages sent from backgroun
 
                 }
                 catch(e){
-                //    console.log(e);
+                    //    console.log(e);
                 }
 
             }
             else{
-                
-                let st = document.createElement('style'); 
-                
-                
+
+                let st = document.createElement('style');
+
+
                 st.innerText='.player-timedtext br{content: "";}' +
-                '.my-timedtext-container br{content: "";}' +
-                '.player-timedtext br:after{content: " ";}' +
-                '.my-timedtext-container br:after{content: " ";}';
-        
+                    '.my-timedtext-container br{content: "";}' +
+                    '.player-timedtext br:after{content: " ";}' +
+                    '.my-timedtext-container br:after{content: " ";}';
+
                 document.head.appendChild(st);
-                
+
 
                 try{
                     settings.getMyTimedTextElement().style['left']='50%';
@@ -934,9 +1282,9 @@ chrome.runtime.onMessage.addListener( //Listens for messages sent from backgroun
                     settings.getMyTimedTextElement().style['-webkit-transform']='translateX(-50%)';
                     settings.getMyTimedTextElement().style['white-space']='nowrap';
                     try{
-                    document.querySelector('.player-timedtext-text-container').setAttribute('style','display: block; white-space: nowrap; max-width:100%; text-align: center; position: absolute;left: 50%; bottom:20%; -webkit-transform: translateX(-50%); transform: translateX(-50%);');   
-                    var sub_bot = parseFloat(document.getElementsByClassName('player-timedtext')[0].style.inset.split(' ')[0].replace('px','')) + parseFloat('.'+document.getElementsByClassName('player-timedtext')[0].firstChild.style['bottom'])*document.getElementsByClassName('player-timedtext')[0].getBoundingClientRect().height;
-                    settings.getMyTimedTextElement().style['bottom']=(sub_bot-(settings.getBaseFont() * settings.getCurrentMultiplier())-10)+'px';
+                        document.querySelector('.player-timedtext-text-container').setAttribute('style','display: block; white-space: nowrap; max-width:100%; text-align: center; position: absolute;left: 50%; bottom:20%; -webkit-transform: translateX(-50%); transform: translateX(-50%);');
+                        var sub_bot = parseFloat(document.getElementsByClassName('player-timedtext')[0].style.inset.split(' ')[0].replace('px','')) + parseFloat('.'+document.getElementsByClassName('player-timedtext')[0].firstChild.style['bottom'])*document.getElementsByClassName('player-timedtext')[0].getBoundingClientRect().height;
+                        settings.getMyTimedTextElement().style['bottom']=(sub_bot-(settings.getBaseFont() * settings.getCurrentMultiplier())-10)+'px';
                     }
                     catch(e){
                         // console.log("No subs on the screen");
@@ -944,11 +1292,12 @@ chrome.runtime.onMessage.addListener( //Listens for messages sent from backgroun
 
                 }
                 catch(e){
-                //    console.log(e);
+                    //    console.log(e);
                 }
 
             }
 
         }
 
-});
+    });
+

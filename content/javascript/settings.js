@@ -319,7 +319,7 @@ export default class Settings{
     }
 
     getNetflixMode(){
-        return this.getNetflixMode();
+        return this.#netflixMode;
     }
 
     setNetflixMode(value){
