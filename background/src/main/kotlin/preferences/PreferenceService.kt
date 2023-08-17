@@ -3,8 +3,7 @@ package preferences
 import Preference
 import chrome.runtime.getURL
 import chrome.storage.ChromeStorageSync
-import chrome.tabs.CreateProperties
-import chrome.tabs.create
+import chrome.tabs.*
 
 
 class PreferenceService {
@@ -20,11 +19,11 @@ class PreferenceService {
         Preference("button_up_down_mode", 1)
     )
 
-    fun updatePreference(key: String, value: dynamic) {
-        console.log("background.js received message to update $key to $value")
-        ChromeStorageSync.set(key, value as Any)
+    fun updatePreference(updateSetting: String, setting: String, value: dynamic) {
+      console.log("background.js received message to update $setting to $value")
+      ChromeStorageSync.set(setting, value as Any);
+      ChromeTabs.sendMessageToActiveTab(updateSetting,value)
     }
-
     fun openPopup() {
         val createProperties = CreateProperties {
             url = getURL("tutorial.html")

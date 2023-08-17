@@ -9,6 +9,8 @@ external fun query(queryInfo: QueryInfo): Promise<Array<Tab>>
 
 external fun create(createProperties: CreateProperties): Promise<Tab>
 
+external fun query(queryInfo: QueryInfo, callback: (result: Array<Tab>) -> Unit)
+
 external var onUpdated: TabUpdatedEvent
 
 external interface TabUpdatedEvent : Event<(tabId: Number, changeInfo: TabChangeInfo, tab: Tab) -> Unit>

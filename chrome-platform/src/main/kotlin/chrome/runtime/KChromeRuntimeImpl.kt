@@ -16,7 +16,7 @@ class KChromeRuntimeImpl : KChromeRuntime {
 
     sendMessage<String,Boolean>(messageObject).catch {
       GlobalScope.launch {
-        delay(1000)
+        delay(3000)
         sendMessage<String,Boolean>(messageObject)
       }
     }
@@ -28,7 +28,7 @@ class KChromeRuntimeImpl : KChromeRuntime {
     messageObject.value = value
     sendMessage<String,String>(messageObject).catch {
       GlobalScope.launch {
-        delay(1000)
+        delay(3000)
         sendMessage<String,String>(messageObject)
       }
     }

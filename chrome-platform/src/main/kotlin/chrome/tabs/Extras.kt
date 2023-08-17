@@ -9,3 +9,6 @@ inline fun CreateProperties(block: CreateProperties.() -> Unit) = (js("{}") as C
 @Suppress("UNCHECKED_CAST_TO_NATIVE_INTERFACE")
 inline fun MessageSendOptions(block: MessageSendOptions.() -> Unit) = (js("{}") as MessageSendOptions).apply(block)
 
+@Suppress("UNCHECKED_CAST_TO_NATIVE_INTERFACE")
+inline fun <T> TabMessage(block: TabMessage<T>.() -> Unit) = (js("{}") as TabMessage<T>).apply(block)
+
